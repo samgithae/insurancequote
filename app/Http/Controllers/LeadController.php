@@ -31,7 +31,7 @@ class LeadController extends Controller
     {
 
         $lead = Lead::create($request->all());
-        return redirect('/');
+        return redirect()->route('leads.show', compact('lead'))->with('message', 'Here is your Quote');
     }
 
     /**

@@ -12,7 +12,8 @@ class InsuranceProviderController extends Controller
      */
     public function index()
     {
-        //
+        $insuranceProviders= InsuranceProvider::query()->paginate(10);
+        return view('insuranceProvider.index', compact('insuranceProviders'));
     }
 
     /**
@@ -20,7 +21,8 @@ class InsuranceProviderController extends Controller
      */
     public function create()
     {
-        //
+        $insuranceProviders= InsuranceProvider::query()->paginate(10);
+        return view('insuranceProvider.create',compact('insuranceProviders'));
     }
 
     /**
@@ -28,7 +30,12 @@ class InsuranceProviderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $insuranceProvider = $request->all();
+        $fileName = time().$request->file('logo')->getClientOriginalName();
+        $path = $request->file('logo')->storeAs('assets/images/logos',$fileName, 'public');
+        $insuranceProvider["logo"]='/storage/'.$path;
+        InsuranceProvider::create($insuranceProvider);
+        return redirect()->route('insuranceProvider.create');
     }
 
     /**
@@ -36,7 +43,7 @@ class InsuranceProviderController extends Controller
      */
     public function show(InsuranceProvider $insuranceProvider)
     {
-        //
+        return view('insuranceProvider.show', compact('insuranceProvider'));
     }
 
     /**
@@ -44,15 +51,17 @@ class InsuranceProviderController extends Controller
      */
     public function edit(InsuranceProvider $insuranceProvider)
     {
-        //
+        return view('insuranceProvider.edit',compact('insuranceProvider'));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, InsuranceProvider $insuranceProvider)
     {
-        //
+        $insuranceProvider->update($request->all());
+        return view('insuranceProvider.create');
     }
 
     /**
@@ -60,6 +69,8 @@ class InsuranceProviderController extends Controller
      */
     public function destroy(InsuranceProvider $insuranceProvider)
     {
-        //
+        $insuranceProvider->delete();
+        $insuranceProviders= InsuranceProvider::query()->paginate(10);
+        return view('insuranceProvider.create',compact('insuranceProviders'));
     }
 }
