@@ -60,8 +60,20 @@ class InsuranceProviderController extends Controller
      */
     public function update(Request $request, InsuranceProvider $insuranceProvider)
     {
-        $insuranceProvider->update($request->all());
-        return view('insuranceProvider.create');
+
+
+//dd($request);
+        $insuranceProvider->fill($request->except('logo')); // Exclude logo field temporarily
+
+        // Update logo if a new one is provided
+        if ($request->hasFile('logo')) {
+            $fileName = time() . $request->file('logo')->getClientOriginalName();
+            $path = $request->file('logo')->storeAs('assets/images/logos', $fileName, 'public');
+            $insuranceProvider->logo = '/storage/' . $path;
+        }
+        $insuranceProvider->save();
+        $insuranceProviders= InsuranceProvider::query()->paginate(10);
+        return view('insuranceProvider.create', compact("insuranceProviders"));
     }
 
     /**
