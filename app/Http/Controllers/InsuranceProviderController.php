@@ -30,10 +30,19 @@ class InsuranceProviderController extends Controller
      */
     public function store(Request $request)
     {
-        $insuranceProvider = $request->all();
+        // $insuranceProvider = $request->all();
+        $insuranceProvider = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'logo' => 'nullable'
+        ]);
+
+        if ($request->hasFile('logo'))
+         {        
         $fileName = time().$request->file('logo')->getClientOriginalName();
         $path = $request->file('logo')->storeAs('assets/images/logos',$fileName, 'public');
         $insuranceProvider["logo"]='/storage/'.$path;
+         }
         InsuranceProvider::create($insuranceProvider);
         return redirect()->route('insuranceProvider.create');
     }

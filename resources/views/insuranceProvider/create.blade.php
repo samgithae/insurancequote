@@ -38,13 +38,13 @@
                                     <div class="col-lg-3">
                                         <div>
                                             <label for="name" class="form-label">Name</label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div>
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -112,7 +112,7 @@
                                                   @method('delete')
                                                   <a href=""
                                                      class="dltBtn btn btn-sm btn-danger remove-item-btn"
-                                                     data-bs-toggle="modal">Archive </a>
+                                                     data-bs-toggle="modal">Delete </a>
 
                                               </form>
                                           </div>

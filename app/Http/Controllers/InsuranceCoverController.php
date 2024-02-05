@@ -60,9 +60,12 @@ class InsuranceCoverController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, InsuranceCover $insuranceCover)
-    {
-        $insuranceCover->update($request->all());
-        return view('insuranceCover.create');
+    {        
+        $insuranceCover->fill($request->all());
+
+        $insuranceCover->save();
+        $insuranceCovers= InsuranceCover::query()->paginate(10);
+        return view('insuranceCover.create', compact("insuranceCovers"));
     }
 
     /**

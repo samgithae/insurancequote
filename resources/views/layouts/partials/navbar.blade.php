@@ -47,6 +47,9 @@
                             <li class="nav-item">
                                 <a href="{{route("insuranceProvider.create")}}" class="nav-link" data-key="t-analytics"> Insurance Providers </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{route("insuranceCover.create")}}" class="nav-link" data-key="t-analytics"> Insurance Covers </a>
+                            </li>
 
 
                         </ul>

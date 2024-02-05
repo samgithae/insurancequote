@@ -38,19 +38,19 @@
                                     <div class="col-lg-3">
                                         <div>
                                             <label for="insurer" class="form-label">Insurer</label>
-                                            <input type="text" class="form-control" id="insurer" name="insurer" placeholder="Enter Name">
+                                            <input type="text" class="form-control" id="insurer" name="insurer" placeholder="Enter Insurer" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div>
                                             <label for="cost" class="form-label">Cost</label>
-                                            <input type="number" class="form-control" id="cost" name="cost" placeholder="Enter Email">
+                                            <input type="number" class="form-control" id="cost" name="cost" placeholder="Enter Cost" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div>
                                             <label for="description" class="form-label">Description</label>
-                                            <input type="text" class="form-control" id="description" name="description" placeholder="Enter Email">
+                                            <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description">
                                         </div>
                                     </div>
                                     
@@ -84,9 +84,9 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Logo</th>
+                                    <th scope="col">insurer</th>
+                                    <th scope="col">Cost</th>
+                                    <th scope="col">Description</th>
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
@@ -95,10 +95,10 @@
                                 @foreach($insuranceCovers as $insuranceCover)
                                 <tr>
                                     <th scope="row">{{$counter++}} </th>
-                                    <td>{{$insuranceCover->name}}</td>
-                                    <td>{{$insuranceCover->email}}</td>
-                                    <td><img src="{{$insuranceProvider->logo}}" class="img img-thumbnail logo-img" style="max-height: 50px;"> </td>
-                                  <td>
+                                    <td>{{$insuranceCover->insurer}}</td>
+                                    <td>{{$insuranceCover->cost}}</td>
+                                    <td>{{$insuranceCover->description}}</td>
+                                    <td>
                                       <div class="d-flex gap-2 justify-content-end">
                                           <div class="edit">
                                               <a href="{{route('insuranceCover.edit', $insuranceCover->id)}}"
@@ -113,7 +113,7 @@
                                                   @method('delete')
                                                   <a href=""
                                                      class="dltBtn btn btn-sm btn-danger remove-item-btn"
-                                                     data-bs-toggle="modal">Archive </a>
+                                                     data-bs-toggle="modal">Delete </a>
 
                                               </form>
                                           </div>
