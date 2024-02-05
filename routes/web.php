@@ -31,5 +31,6 @@ Route::middleware('auth')->group(function () {
 Route::resource('leads', LeadController::class);
 Route::resource('insuranceProvider', \App\Http\Controllers\InsuranceProviderController::class);
 Route::resource('insuranceCover', \App\Http\Controllers\InsuranceCoverController::class);
+Route::resource('benefit', \App\Http\Controllers\BenefitController::class);
 
 require __DIR__.'/auth.php';

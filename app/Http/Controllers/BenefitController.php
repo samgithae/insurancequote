@@ -14,7 +14,7 @@ class BenefitController extends Controller
     public function index()
     {
         $benefits= Benefit::query()->paginate(10);
-        return view('benefits.index');
+        return view('benefit.index',compact('benefits'));
     }
 
     /**
@@ -22,7 +22,8 @@ class BenefitController extends Controller
      */
     public function create()
     {
-        return view('benefits.create');
+        $benefits= Benefit::query()->paginate(10);
+        return view('benefit.create',compact('benefits'));
     }
 
     /**
@@ -31,7 +32,14 @@ class BenefitController extends Controller
     public function store(Request $request)
     {
         $benefit = Benefit::create($request->all());
-        return redirect()->route('benefits.create',compact('benefit'))->with('message','Benefit saved Successfully');
+        $benefit = $request->validate([
+            'insuranceCover' => 'required',
+            'benefit' => 'required',
+            'value' => 'required|integer',
+            'status' => 'required',
+            'cost' => 'nullable|integer'
+        ]);
+        return redirect()->route('benefit.create',compact('benefit'))->with('message','Benefit saved Successfully');
     }
 
     /**
@@ -39,7 +47,7 @@ class BenefitController extends Controller
      */
     public function show(Benefit $benefit)
     {
-        return view('benefits.show',compact('benefit'));
+        return view('benefit.show',compact('benefit'));
     }
 
     /**
@@ -47,16 +55,19 @@ class BenefitController extends Controller
      */
     public function edit(Benefit $benefit)
     {
-        return view('benefits.edit', compact('benefit'));
+        return view('benefit.edit', compact('benefit'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Benefit $benefit)
-    {
-        $benefit->update($request->all());
-        return view('benefits.create');
+    {        
+        $benefit->fill($request->all());
+
+        $benefit->save();
+        $benefits= benefit::query()->paginate(10);
+        return view('benefit.create', compact("benefits"));
     }
 
     /**
@@ -65,6 +76,7 @@ class BenefitController extends Controller
     public function destroy(Benefit $benefit)
     {
         $benefit->delete();
-        return view('benefits.create');
+        $benefits= Benefit::query()->paginate(10);
+        return view('benefit.create',compact('benefits'));
     }
 }
