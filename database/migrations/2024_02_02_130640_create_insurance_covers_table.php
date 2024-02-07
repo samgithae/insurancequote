@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string("insurer");
             $table->string("cost");
+            $table->integer("minimum_value");
+            $table->integer("maximum_value");
+            $table->integer("basic_rate");
+            $table->integer("minimum_premium");
             $table->string("description")->nullable();
             $table->timestamps();
         });

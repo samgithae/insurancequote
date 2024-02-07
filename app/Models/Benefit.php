@@ -15,4 +15,9 @@ class Benefit extends Model
         "status",
         "cost"
     ];
+
+    public function insuranceCover()
+    {
+        return $this->belongsTo(InsuranceCover::class);
+    }
 }

@@ -37,7 +37,7 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">insurer</th>
+                                    <th scope="col">insurance Provider</th>
                                     <th scope="col">Cost</th>
                                     <th scope="col">Description</th>
                                     <!-- <th scope="col">Action</th> -->

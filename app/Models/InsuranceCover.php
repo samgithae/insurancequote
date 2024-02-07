@@ -11,12 +11,22 @@ class InsuranceCover extends Model
     protected $fillable = [
         "insurer",
         "cost",
-        "description"
+        "minimum_value",
+        "maximum_value",
+        "basic_rate",
+        "minimum_premium",
+        "description",
+        'insurance_provider_id'
     ];
 
         // One to one relationship
     public function insuranceProvider()
     {
         return $this->belongsTo(InsuranceProvider::class);
+    }
+    
+    public function benefit()
+    {
+        return $this->hasOne(Benefit::class);
     }
 }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("benefit");
             $table->integer("value");
             $table->string("status");
-            $table->float("cost")->nullable();
+            $table->integer("cost")->nullable();
 
             $table->timestamps();
         });

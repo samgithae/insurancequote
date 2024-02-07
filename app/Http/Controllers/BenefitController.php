@@ -24,6 +24,7 @@ class BenefitController extends Controller
     public function create()
     {
         $benefits= Benefit::query()->paginate(10);
+        $insuranceCovers = InsuranceCover::with('benefit')->get();
         $insurers = InsuranceCover::pluck('insurer', 'id');
         return view('benefit.create',compact('benefits','insurers'));
     }

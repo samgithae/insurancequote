@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\InsuranceCover;
+use App\Models\InsuranceProvider;
 use Illuminate\Http\Request;
 
 class InsuranceCoverController extends Controller
@@ -22,7 +23,9 @@ class InsuranceCoverController extends Controller
     public function create()
     {
         $insuranceCovers= InsuranceCover::query()->paginate(10);
-        return view('insuranceCover.create',compact('insuranceCovers'));
+        $insuranceProviders = InsuranceProvider::pluck('name', 'id');
+
+        return view('insuranceCover.create',compact('insuranceCovers','insuranceProviders'));
     }
 
     /**
@@ -33,9 +36,15 @@ class InsuranceCoverController extends Controller
         $insuranceCover = $request->validate([
             'insurer' => 'required',
             'cost' => 'required',
-            'description' => 'nullable'
+            'minimum_value' => 'nullable',
+            'maximum_value'  => 'nullable',
+            'basic_rate'  => 'nullable',
+            'minimum_premium'  => 'nullable',
+            'description' => 'nullable',
+            'insurance_provider_id' => 'required'
         ]);
-        
+
+                
         InsuranceCover::create($insuranceCover);
         return redirect()->route('insuranceCover.create');
     }
@@ -53,7 +62,8 @@ class InsuranceCoverController extends Controller
      */
     public function edit(InsuranceCover $insuranceCover)
     {
-        return view('insuranceCover.edit',compact('insuranceCover'));
+        $insuranceProviders = InsuranceProvider::pluck('name', 'id');
+        return view('insuranceCover.edit',compact('insuranceCover','insuranceProviders'));
     }
 
     /**
@@ -64,8 +74,10 @@ class InsuranceCoverController extends Controller
         $insuranceCover->fill($request->all());
 
         $insuranceCover->save();
+
         $insuranceCovers= InsuranceCover::query()->paginate(10);
-        return view('insuranceCover.create', compact("insuranceCovers"));
+        $insuranceProviders = InsuranceProvider::pluck('name', 'id');
+        return view('insuranceCover.create', compact('insuranceCovers','insuranceProviders'));
     }
 
     /**
@@ -75,6 +87,8 @@ class InsuranceCoverController extends Controller
     {
         $insuranceCover->delete();
         $insuranceCovers= InsuranceCover::query()->paginate(10);
-        return view('insuranceCover.create',compact('insuranceCovers'));
+
+        $insuranceProviders = InsuranceProvider::pluck('name', 'id');
+        return view('insuranceCover.create',compact('insuranceCovers','insuranceProviders'));
     }
 }

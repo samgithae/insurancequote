@@ -35,18 +35,55 @@
                             <form  method="POST" action="{{ route('insuranceCover.store') }}" class="form-steps" enctype="multipart/form-data" autocomplete="off">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-lg-3">
-                                        <div>
-                                            <label for="insurer" class="form-label">Insurer</label>
-                                            <input type="text" class="form-control" id="insurer" name="insurer" placeholder="Enter Insurer" required>
-                                        </div>
-                                    </div>
+                                   
+
+                                <div class="col-lg-3">
+                                    <label class="form-label" for="insuranceProvider">Insurance Provider</label>
+                                    <select class="form-select" type="text" id="insuranceProvider" name="insurance_provider_id" required>
+                                        <option value="" selected disabled>Select Insurance Provider</option>
+                                        @foreach($insuranceProviders as $id => $insuranceProvider)
+                                            <option value="{{ $id }}">{{ $insuranceProvider }}</option>
+                                        @endforeach
+                                    </select>
+                                    <input type="hidden" name="insurer" id="insurer" required>
+                                </div>
+
+
                                     <div class="col-lg-3">
                                         <div>
                                             <label for="cost" class="form-label">Cost</label>
                                             <input type="number" class="form-control" id="cost" name="cost" placeholder="Enter Cost" required>
                                         </div>
                                     </div>
+                                    
+                                    <div class="col-lg-3">
+                                        <div>
+                                            <label for="minimum_value" class="form-label">Minimum Value</label>
+                                            <input type="number" class="form-control" id="minimum_value" name="minimum_value" placeholder="Enter Minimum Value" >
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div>
+                                            <label for="maximum_value" class="form-label">Maximum Value</label>
+                                            <input type="number" class="form-control" id="maximum_value" name="maximum_value" placeholder="Enter Maximum Value" >
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div>
+                                            <label for="basic_rate" class="form-label">Basic Rate</label>
+                                            <input type="number" class="form-control" id="basic_rate" name="basic_rate" placeholder="Enter Basic Rate" >
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div>
+                                            <label for="minimum_premium" class="form-label">Minimum Premium</label>
+                                            <input type="number" class="form-control" id="minimum_premium" name="minimum_premium" placeholder="Enter Minimum Premium" >
+                                        </div>
+                                    </div>
+
                                     <div class="col-lg-3">
                                         <div>
                                             <label for="description" class="form-label">Description</label>
@@ -84,7 +121,7 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">insurer</th>
+                                    <th scope="col">Insurance Provider</th>
                                     <th scope="col">Cost</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Action</th>
@@ -166,5 +203,13 @@
                             }
                         });
                 });
+
+
+                
+                document.getElementById('insuranceProvider').addEventListener('change', function() {
+                    var selectedOption = this.options[this.selectedIndex];
+                    document.getElementById('insurer').value = selectedOption.text;
+                });
+
             </script>
 @endsection

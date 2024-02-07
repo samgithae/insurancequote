@@ -53,10 +53,10 @@
                                                 <label class="form-label" for="insuranceCover">Insurance Cover</label>
 
                                                 <select class="form-select" type="text" id="insuranceCover" name="insuranceCover" required>
-                                                    <option value="{{$benefit->insuranceCover}}" selected >{{$benefit->insuranceCover}}</option>
+                                                    <!-- <option value="{{$benefit->insuranceCover}}" selected >{{$benefit->insuranceCover}}</option> -->
 
                                                     @foreach($insurers as $insurer )
-                                                        <option value="{{ $insurer }}">{{ $insurer }}</option>
+                                                        <option value="{{ $insurer }}"  {{ $insurer == $benefit->insuranceCover ? 'selected' : '' }} >{{ $insurer }}</option>
                                                     @endforeach
                                                 </select>                                       
                                             </div>
@@ -82,13 +82,12 @@
                                         </div>
                                         <div class="row">
 
-                                            <div class=" col-lg-4">
-                                                <div>
-                                                    <label for="status" class="form-label"> Status
-                                                    </label>
-                                                    <input type="text" value="{{$benefit->status}}"  name="status" class="form-control" 
-                                                           placeholder="Enter Status">
-                                                </div>
+                                            <div class="col-lg-4" >                                                  
+                                                <label for="status" class="form-label">Status</label> 
+                                                <select class="form-select" name="status"  required>                                                                                                                    
+                                                <option value="free" {{ $benefit->status == 'free' ? 'selected' : '' }}>Free</option>                                                                
+                                                <option value="paid" {{ $benefit->status == 'paid' ? 'selected' : '' }}>Paid</option>
+                                                </select>                                        
                                             </div>
 
                                         
