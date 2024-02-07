@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::resource('leads', LeadController::class);
+Route::resource('leads', \App\Http\Controllers\LeadController::class);
 Route::resource('insuranceProvider', \App\Http\Controllers\InsuranceProviderController::class);
 Route::resource('insuranceCover', \App\Http\Controllers\InsuranceCoverController::class);
 Route::resource('benefit', \App\Http\Controllers\BenefitController::class);

@@ -42,8 +42,8 @@
                                         <select class="form-select" type="text" id="insuranceCover" name="insuranceCover" required>
                                             <option value="" selected disabled >Select Insurance Cover</option>
 
-                                            @foreach($benefits as $benefit)
-                                                <option value="{{ $benefit->insuranceCover }}">{{ $benefit->insuranceCover }}</option>
+                                            @foreach($insurers as $insurer )
+                                                <option value="{{ $insurer }}">{{ $insurer }}</option>
                                             @endforeach
                                         </select>                                       
                                     </div>
@@ -65,9 +65,9 @@
                                 
                                 <div class="row">  
                                                                    
-                                    <div class="col-lg-4">                                                  
-                                        <label for="status">Status</label> 
-                                        <select name="status" required>                                                                
+                                    <div class="col-lg-4" >                                                  
+                                        <label for="status" class="form-label">Status</label> 
+                                        <select class="form-select" name="status" required>                                                                
                                         <option value="free">Free</option>                                                                
                                         <option value="paid">Paid</option>
                                         </select>                                        

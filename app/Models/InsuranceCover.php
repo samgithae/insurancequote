@@ -13,4 +13,10 @@ class InsuranceCover extends Model
         "cost",
         "description"
     ];
+
+        // One to one relationship
+    public function insuranceProvider()
+    {
+        return $this->belongsTo(InsuranceProvider::class);
+    }
 }

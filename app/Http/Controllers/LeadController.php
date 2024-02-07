@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lead;
+use App\Models\InsuranceProvider;
+use App\Models\InsuranceCover;
 use Illuminate\Http\Request;
 
 class LeadController extends Controller
@@ -13,7 +15,9 @@ class LeadController extends Controller
     public function index()
     {
         $leads= Lead::query()->paginate(10);
-        return view('leads.index', compact('leads'));
+        // $insuranceCovers = InsuranceCover::with('insuranceProvider')->get();
+        $providers = InsuranceProvider::pluck('logo', 'id');
+        return view('leads.index', compact('leads','providers'));
     }
 
     /**

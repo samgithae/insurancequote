@@ -24,7 +24,7 @@
 
             <div class="row">
 
-                <div class="col-xl-10 offset-lg-1">
+                <div class="col-xl-12 offset-lg-0">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title mb-0">View all insurance Covers</h4>

@@ -48,15 +48,21 @@
                                         @csrf
                                         <div class="row">
 
-                                            <div class="col-xxl-3 col-md-3">
-                                                <div>
-                                                    <label for="insuranceCover" class="form-label"> Insurance Cover
-                                                    </label>
-                                                    <input type="text"  name="insuranceCover"  value="{{$benefit->insuranceCover}}" class="form-control" id="insuranceCover" placeholder="Enter Insurance Cover">
-                                                </div>
+                                        
+                                            <div class="col-lg-4">
+                                                <label class="form-label" for="insuranceCover">Insurance Cover</label>
+
+                                                <select class="form-select" type="text" id="insuranceCover" name="insuranceCover" required>
+                                                    <option value="{{$benefit->insuranceCover}}" selected >{{$benefit->insuranceCover}}</option>
+
+                                                    @foreach($insurers as $insurer )
+                                                        <option value="{{ $insurer }}">{{ $insurer }}</option>
+                                                    @endforeach
+                                                </select>                                       
                                             </div>
+
                                             <!--end col-->
-                                            <div class="col-xxl-3 col-md-3">
+                                            <div class=" col-lg-4">
                                                 <div>
                                                     <label for="benefit" class="form-label"> Benefit
                                                     </label>
@@ -64,7 +70,7 @@
                                                            placeholder="Enter Cost">
                                                 </div>
                                             </div>
-                                            <div class="col-xxl-3 col-md-3">
+                                            <div class=" col-lg-4">
                                                 <div>
                                                     <label for="value" class="form-label"> Value
                                                     </label>
@@ -73,15 +79,20 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-xxl-3 col-md-3">
+                                        </div>
+                                        <div class="row">
+
+                                            <div class=" col-lg-4">
                                                 <div>
                                                     <label for="status" class="form-label"> Status
                                                     </label>
-                                                    <input type="text" value="{{$benefit->status}}"  name="status" class="form-control" id="status"
+                                                    <input type="text" value="{{$benefit->status}}"  name="status" class="form-control" 
                                                            placeholder="Enter Status">
                                                 </div>
                                             </div>
-                                            <div class="col-xxl-3 col-md-3">
+
+                                        
+                                            <div class=" col-lg-4">
                                                 <div>
                                                     <label for="cost" class="form-label"> Cost
                                                     </label>
@@ -91,7 +102,7 @@
                                             </div>                                            
 
                                             <!--end col-->
-                                            <div class="col-xxl-2 col-xl-2 col-md-6">
+                                            <div class=" col-lg-4">
                                                 <div>
                                                     <label for="labelInput" class="form-label">&nbsp;</label>
                                                     <div class="d-flex gap-2">

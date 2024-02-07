@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Benefit;
 use App\Models\Lead;
+use App\Models\InsuranceCover;
 use Illuminate\Http\Request;
 
 class BenefitController extends Controller
@@ -23,7 +24,8 @@ class BenefitController extends Controller
     public function create()
     {
         $benefits= Benefit::query()->paginate(10);
-        return view('benefit.create',compact('benefits'));
+        $insurers = InsuranceCover::pluck('insurer', 'id');
+        return view('benefit.create',compact('benefits','insurers'));
     }
 
     /**
@@ -55,7 +57,8 @@ class BenefitController extends Controller
      */
     public function edit(Benefit $benefit)
     {
-        return view('benefit.edit', compact('benefit'));
+        $insurers = InsuranceCover::pluck('insurer', 'id');
+        return view('benefit.edit', compact('benefit','insurers'));        
     }
 
     /**
@@ -67,7 +70,8 @@ class BenefitController extends Controller
 
         $benefit->save();
         $benefits= benefit::query()->paginate(10);
-        return view('benefit.create', compact("benefits"));
+        $insurers = InsuranceCover::pluck('insurer', 'id');
+        return view('benefit.create', compact('benefits','insurers'));
     }
 
     /**
@@ -77,6 +81,7 @@ class BenefitController extends Controller
     {
         $benefit->delete();
         $benefits= Benefit::query()->paginate(10);
-        return view('benefit.create',compact('benefits'));
+        $insurers = InsuranceCover::pluck('insurer', 'id');
+        return view('benefit.create',compact('benefits','insurers'));
     }
 }

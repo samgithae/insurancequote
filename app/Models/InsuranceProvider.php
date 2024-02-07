@@ -13,4 +13,10 @@ class InsuranceProvider extends Model
         "email",
         "logo"
     ];
+    
+    //  one to many relationship
+    public function insuranceCovers()
+    {
+        return $this->hasMany(InsuranceCover::class);
+    }
 }
