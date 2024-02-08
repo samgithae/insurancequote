@@ -24,9 +24,13 @@ class InsuranceCover extends Model
     {
         return $this->belongsTo(InsuranceProvider::class);
     }
-    
+
     public function benefit()
     {
         return $this->hasOne(Benefit::class);
+    }
+    public function benefits()
+    {
+        return $this->hasMany(Benefit::class);
     }
 }

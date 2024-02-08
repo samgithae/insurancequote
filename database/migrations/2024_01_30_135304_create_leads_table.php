@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("phone");
             $table->string("email")->nullable();
             $table->string("vehicle_use");
-            $table->float("vehicle_value");
+            $table->bigInteger("vehicle_value");
             $table->string("vehicle_type");
             $table->string("vehicle_model");
             $table->string("yom",4);
