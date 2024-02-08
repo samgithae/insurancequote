@@ -42,8 +42,9 @@ class LeadController extends Controller
      * Display the specified resource.
      */
     public function show(Lead $lead)
-    {
-        return view('leads.show', compact('lead'));
+    {   
+        $providers = InsuranceProvider::pluck('logo', 'id');
+        return view('leads.show', compact('lead','providers'));
     }
 
     /**

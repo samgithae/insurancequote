@@ -23,3 +23,45 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<style> 
+.vehicle-options {
+           display: flex;
+            gap: 10px; 
+            text-align: center;
+            padding: 20px;
+            
+            }
+
+        .vehicle-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            }
+        .vehicle-option img {
+        max-width: 70%; /* Make the images responsive */
+        height: auto; /* Maintain the aspect ratio */        
+            }
+        
+            .commercial-details,
+        .psv-details {
+             display: none;
+            }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;    
+          }
+
+        .invalid-feedback {
+            color: red;
+            margin-top: 5px;
+            }
+        
+        .hidden {
+            display: none;
+            }
+        img {
+        cursor: pointer;
+        }
+</style>
