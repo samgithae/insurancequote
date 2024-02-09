@@ -9,13 +9,14 @@ class Lead extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "vehicle_use",
+        "valued_in_last_18_months",
         "vehicle_value",
         "vehicle_model",
-        "yom",
-        "cover_start_date",
+        "vehicle_use",
         "vehicle_type",
         "passenger_count",
+        "yom",
+        "cover_start_date",
         "name",
         "phone",
         "email"

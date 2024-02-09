@@ -282,16 +282,27 @@
                                                 <div class="col-lg-6">
                                                     <div>
                                                         <label class="form-label" for="steparrow-gen-info-cover_start_date">Cover Start Date</label>
-                                                        <input type="date" class="form-control" id="steparrow-gen-info-cover_start_date" name="cover_start_date" placeholder="Enter Year of Cover Start Date" value="{{$lead->cover_start_date}}"required >
+                                                        <input type="date" class="form-control" id="steparrow-gen-info-cover_start_date" name="cover_start_date" placeholder="Enter Year of Cover Start Date" value="{{$lead->cover_start_date}}" >
                                                         <div class="invalid-feedback">Please enter Cover Start Date</div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div>
+                                            
+                                            <div class="row">
+                                            <div class="col-lg-6">
                                                 <label class="form-label" for="steparrow-gen-info-passenger_count">Passenger Count</label>
                                                 <input type="number" class="form-control" id="steparrow-gen-info-passenger_count" name="passenger_count" placeholder="{{$lead->passenger_count}}" value="{{$lead->passenger_count}}" >
                                                 <div class="invalid-feedback">Please enter Passenger Count</div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <label class="form-label" for="steparrow-gen-info-passenger_count">Valued in last 18 months</label>
+                                                <input type="number" class="form-control" id="steparrow-gen-info-valued_in_last_18_months" name="valued_in_last_18_months" placeholder="{{$lead->valued_in_last_18_months}}" value="{{$lead->valued_in_last_18_months}}" >
+                                                <div class="invalid-feedback">Please enter Passenger Count</div>
+                                            </div>
+
+
                                             </div>
 
                                         </div>
@@ -306,17 +317,17 @@
 
                                             <div>
                                                 <label class="form-label" for="des-info-name">Your Name</label>
-                                                <input type="text" class="form-control" id="des-info-name" name="name" placeholder="{{$lead->name}}" required >
+                                                <input type="text" class="form-control" id="des-info-name" name="name" placeholder="{{$lead->name}}"  >
                                                 <div class="invalid-feedback">Please enter Your Name</div>
                                             </div>
                                             <div>
                                                 <label class="form-label" for="des-info-description-name">Your Phone</label>
-                                                <input type="text" class="form-control" id="des-info-phone" name="phone" placeholder="{{$lead->phone}}" required >
+                                                <input type="text" class="form-control" id="des-info-phone" name="phone" placeholder="{{$lead->phone}}"  >
                                                 <div class="invalid-feedback">Please enter Your Phone</div>
                                             </div>
                                             <div>
                                                 <label class="form-label" for="des-info-description-name">Your Email</label>
-                                                <input type="text" class="form-control" id="des-info-email" name="email" placeholder="{{$lead->email}}" required >
+                                                <input type="text" class="form-control" id="des-info-email" name="email" placeholder="{{$lead->email}}"  >
                                                 <div class="invalid-feedback">Please enter Your Email</div>
                                             </div>
 

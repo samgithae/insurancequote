@@ -247,7 +247,7 @@
                                                                                 <div class="invalid-feedback">Please enter Vehicle Model</div>
                                                                             </div>
                                                                         </div>
-                        <!-- empty div  -->
+                        
                                                                     
 
                                                                     <div class="col-lg-6">
@@ -290,7 +290,7 @@
                                                                 <div id="psvFields" class="hidden">
                                                                 <div>
                                                                     <label class="form-label" for="steparrow-gen-info-passenger_count">Passenger Count</label>
-                                                                    <input type="number" class="form-control" id="steparrow-gen-info-passenger_count" name="passenger_count" placeholder="Enter Passenger Count" required >
+                                                                    <input type="number" class="form-control" id="steparrow-gen-info-passenger_count" name="passenger_count" placeholder="Enter Passenger Count"  >
                                                                     <div class="invalid-feedback">Please enter Passenger Count</div>
                                                                 </div>
                                                                 </div>
@@ -344,7 +344,7 @@
 
                                         </div>
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <button type="button" class="btn btn-success btn-label right ms-auto nexttab nexttab" data-nexttab="steparrow-description-info-tab"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Generate Quote</button>
+                                            <button type="submit" class="btn btn-success btn-label right ms-auto nexttab nexttab" data-nexttab="steparrow-description-info-tab"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Generate Quote</button>
                                         </div>
                                     </div>
                                     <!-- end tab pane -->
