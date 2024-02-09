@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("email")->nullable();
             $table->string("valued_in_last_18_months");
             $table->string("vehicle_use");
-            $table->float("vehicle_value");
+            $table->bigInteger("vehicle_value");
             $table->string("vehicle_type")->nullable();
             $table->string("vehicle_model");
             $table->string("yom",4);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lead;
 use App\Models\InsuranceProvider;
 use App\Models\InsuranceCover;
+use DB;
 use Illuminate\Http\Request;
 
 class LeadController extends Controller
@@ -42,9 +43,29 @@ class LeadController extends Controller
      * Display the specified resource.
      */
     public function show(Lead $lead)
-    {   
-        $providers = InsuranceProvider::pluck('logo', 'id');
-        return view('leads.show', compact('lead','providers'));
+    {
+        $vehicle_value= $lead->vehicle_value;
+
+        $insuranceCovers= InsuranceCover::query()
+            ->where('minimum_value','<',$vehicle_value)
+           ->where('maximum_value','>=',$vehicle_value)
+            ->with('insuranceProvider')
+            ->get();
+
+        $cover_prices = array();
+       foreach ($insuranceCovers as $cover) {
+           $calculatedPremium = ($cover->basic_rate / 100) * $vehicle_value;
+           $actualPremium = 0;
+           if ($calculatedPremium < $cover->minimum_premium) {
+               $actualPremium = $cover->minimum_premium;
+           } else {
+               $actualPremium = $calculatedPremium;
+           }
+           $cover_prices[$cover->id] = $actualPremium;
+       }
+
+
+        return view('leads.show', compact('lead','insuranceCovers', 'cover_prices'));
     }
 
     /**

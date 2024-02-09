@@ -32,22 +32,22 @@
                             <h4 class="card-title mb-0">Add a Benefit</h4>
                         </div><!-- end card header -->
                         <div class="card-body">
-                            <form  method="POST" action="{{ route('benefit.store') }}" class="form-steps" enctype="multipart/form-data" autocomplete="off">
+                            <form  method="POST" action="{{ route('benefit.store') }}" class="form-steps"  autocomplete="off">
                                 @csrf
-                                <div class="row mb-3" > 
+                                <div class="row mb-3" >
 
                                     <div class="col-lg-4">
                                         <label class="form-label" for="insuranceCover">Insurance Cover</label>
 
-                                        <select class="form-select" type="text" id="insuranceCover" name="insuranceCover" required>
+                                        <select class="form-select" type="text" id="insurance_cover_id" name="insurance_cover_id" required>
                                             <option value="" selected disabled >Select Insurance Cover</option>
 
                                             @foreach($insurers as $insurer )
-                                                <option value="{{ $insurer }}">{{ $insurer }}</option>
+                                                <option value="{{ $insurer->id }}">{{ $insurer->insurer }}</option>
                                             @endforeach
-                                        </select>                                       
+                                        </select>
                                     </div>
-                                        
+
 
                                     <div class="col-lg-4">
                                         <div>
@@ -62,18 +62,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div class="row">  
-                                                                   
-                                    <div class="col-lg-4" >                                                  
-                                        <label for="status" class="form-label">Status</label> 
-                                        <select class="form-select" name="status" required>                                                                
-                                        <option value="free">Free</option>                                                                
+
+                                <div class="row">
+
+                                    <div class="col-lg-4" >
+                                        <label for="status" class="form-label">Status</label>
+                                        <select class="form-select" name="status" required>
+                                        <option value="free">Free</option>
                                         <option value="paid">Paid</option>
-                                        </select>                                        
-                                    </div> 
-                                        
-                                    
+                                        </select>
+                                    </div>
+
+
 
                                     <div class="col-lg-4">
                                         <div>
@@ -81,7 +81,7 @@
                                             <input type="number" class="form-control" id="cost" name="cost" placeholder="Enter Cost" >
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-lg-4">
                                         <button type="submit" class="btn btn-success btn-label right ms-auto m-4" data-nexttab="pills-experience-tab"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Add Benefit</button>
 

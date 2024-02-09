@@ -33,25 +33,25 @@
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{route("leads.create")}}"
-                       aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Home</span>
+                       aria-expanded="false" aria-controls="sidebarHome">
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-Home">Home</span>
                     </a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Settings</span>
+                    <a class="nav-link menu-link" href="#sidebarSettings" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSettings">
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-Settings">Settings</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarDashboards">
+                    <div class="collapse menu-dropdown" id="sidebarSettings">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{route("insuranceProvider.index")}}" class="nav-link" data-key="t-analytics"> Insurance Providers </a>
+                                <a href="{{route("insuranceProvider.index")}}" class="nav-link" data-key="t-Settings"> Insurance Providers </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route("insuranceCover.index")}}" class="nav-link" data-key="t-analytics"> Insurance Covers </a>
+                                <a href="{{route("insuranceCover.index")}}" class="nav-link" data-key="t-Settings"> Insurance Covers </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route("benefit.index")}}" class="nav-link" data-key="t-analytics"> Insurance Benefits </a>
+                                <a href="{{route("benefit.index")}}" class="nav-link" data-key="t-Settings"> Insurance Benefits </a>
                             </li>
 
 
@@ -59,13 +59,13 @@
                     </div>
                 </li> <!-- end Setting Menu -->
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Leads</span>
+                    <a class="nav-link menu-link" href="#sidebarLeads" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLeads">
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-Leads">Leads</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarDashboards">
+                    <div class="collapse menu-dropdown" id="sidebarLeads">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{route("leads.index")}}" class="nav-link" data-key="t-analytics"> Leads </a>
+                                <a href="{{route("leads.index")}}" class="nav-link" data-key="t-Leads"> Leads </a>
                             </li>
 
 

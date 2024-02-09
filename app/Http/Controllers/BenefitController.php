@@ -25,7 +25,7 @@ class BenefitController extends Controller
     {
         $benefits= Benefit::query()->paginate(10);
         $insuranceCovers = InsuranceCover::with('benefit')->get();
-        $insurers = InsuranceCover::pluck('insurer', 'id');
+        $insurers = InsuranceCover::all();
         return view('benefit.create',compact('benefits','insurers'));
     }
 
@@ -34,14 +34,16 @@ class BenefitController extends Controller
      */
     public function store(Request $request)
     {
-        $benefit = Benefit::create($request->all());
+
         $benefit = $request->validate([
-            'insuranceCover' => 'required',
+            'insurance_cover_id' => 'required',
             'benefit' => 'required',
             'value' => 'required|integer',
             'status' => 'required',
             'cost' => 'nullable|integer'
         ]);
+        $benefit = Benefit::create($request->all());
+
         return redirect()->route('benefit.create',compact('benefit'))->with('message','Benefit saved Successfully');
     }
 
@@ -59,14 +61,14 @@ class BenefitController extends Controller
     public function edit(Benefit $benefit)
     {
         $insurers = InsuranceCover::pluck('insurer', 'id');
-        return view('benefit.edit', compact('benefit','insurers'));        
+        return view('benefit.edit', compact('benefit','insurers'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Benefit $benefit)
-    {        
+    {
         $benefit->fill($request->all());
 
         $benefit->save();

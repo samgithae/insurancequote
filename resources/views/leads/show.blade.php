@@ -2,6 +2,7 @@
 
 @extends('layouts.base')
 @section('body')
+
     <div class="page-content">
         <div class="container-fluid">
 
@@ -66,11 +67,11 @@
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="steparrow-gen-info-vehicle_use">Vehicle Use</label>
-                                                        <select class="form-select" type="text" id="vehicle_use" name="vehicle_use" required>                                                                
+                                                        <select class="form-select" type="text" id="vehicle_use" name="vehicle_use" required>
                                                                     <option value="{{$lead->vehicle_use}}" selected disabled>{{$lead->vehicle_use}}</option>
                                                                     <option value="personal" >Personal</option>
                                                                     <option value="commercial" >Commercial</option>
-                                                                    <option value="psv" >psv</option>                                                                
+                                                                    <option value="psv" >psv</option>
                                                                 </select>
                                                         <div class="invalid-feedback">Please enter a valid Vehicle type</div>
                                                     </div>
@@ -231,10 +232,10 @@
                                                     <div>
                                                         <label class="form-label" for="steparrow-gen-info-vehicle_type">Vehicle Type</label>
                                                         <select class="form-select" type="text" id="vehicle_type" name="vehicle_type" >
-                                                                        <option value="{{$lead->vehicle_type}}" selected >{{$lead->vehicle_type}}</option>                                                            
+                                                                        <option value="{{$lead->vehicle_type}}" selected >{{$lead->vehicle_type}}</option>
                                                                         <option value="pickup">pickup</option>
                                                                         <option value="canter">canter</option>
-                                                                        <option value="lorry">lorry</option>  
+                                                                        <option value="lorry">lorry</option>
                                                                     </select>
                                                         <div class="invalid-feedback">Please enter Vehicle Type</div>
                                                     </div>
@@ -248,7 +249,7 @@
                                                         <label class="form-label" for="steparrow-gen-info-yom">Year of Manufacture</label>
                                                         <select class="form-select" type="number" id="yom" name="yom" required>
                                                                         <option value="{{$lead->yom}}" selected disabled>{{$lead->yom}}</option>
-                                                                        
+
                                                                         <option value="2000">2000</option>
                                                                         <option value="2001">2001</option>
                                                                         <option value="2002">2002</option>
@@ -274,7 +275,7 @@
                                                                         <option value="2022">2022</option>
                                                                         <option value="2023">2023</option>
                                                                         <option value="2024">2024</option>
-                                                                                                                                            
+
                                                                     </select>
                                                         <div class="invalid-feedback">Please enter Year of Manufacture</div>
                                                     </div>
@@ -349,9 +350,15 @@
                                             </div>
                                             <h5>Well Done {{$lead->name}}!</h5>
                                             <p class="text-muted">Below are your Insurance Options</p>
+                                            @foreach($insuranceCovers as $insuranceCover)
+{{--                                                {{$insuranceCover->insuranceProvider->name}}--}}
+{{--                                                {{dd( $insuranceCover)  }}--}}
+                                            @endforeach
 
 
-                                            @foreach ($providers as $provider)
+
+                                            @foreach ($insuranceCovers as $insuranceCover)
+{{--                                                {{dd($insuranceCover->benefits)}}--}}
                                         <table class="table table-striped-columns">
                                             <tr class="table-light ">
                                                 <th class="col-lg-3 align-middle m-3 ms-2"  > </th>
@@ -360,38 +367,26 @@
                                             </tr>
                                             <tr class=" " >
                                                 <td  rowspan="4" >    <!--class="table-light"-->
-                                                   <img  src="{{ $provider }}" width="150px"  height="150px"  class="rounded-circle mt-5 " alt="Provider Logo">
+                                                   <img  src="{{ $insuranceCover->insuranceProvider->logo }}" width="150px"  height="150px"  class="rounded-circle mt-5 " alt="Provider Logo">
                                                 </td>
                                                 <td>
+                                                    @foreach($insuranceCover->benefits as $benefit)
                                                 <table class="table table-striped-columns">
                                                     <tr>
-                                                        <th>Windscreen</th>
-                                                        <th>Radio System</th>
-                                                        <th>3rd Party Property Damage</th>
+                                                        <td class="h6">{{$benefit->benefit}}</td>
+                                                        <td>{{$benefit->status}}</td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>30,000</td>
-                                                        <td>30,000</td>
-                                                        <td>30,000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Towing Charges</th>
-                                                        <th>Authorized Repair</th>
-                                                        <th>Passenger Legal Liability</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>30,000</td>
-                                                        <td>Yes</td>
-                                                        <td>3,000,000</td>
-                                                    </tr>
+
                                                 </table>
+                                                    @endforeach
                                                 </td>
                                                 <td rowspan="4">
-                                                    <button class="btn btn-success right  mt-5"  id="priceBtn">$cover->cost</button>
+
+                                                    <button class="btn btn-success right  mt-5"  id="priceBtn">{{$cover_prices[$insuranceCover->id]}}</button>
                                                     <button class="btn btn-success btn-label right ms-auto mt-5" id="addBenefitsBtn"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Add Benefits</button>
                                                 </td>
-                                                
-                                                
+
+
                                             </tr>
                                         </table>
                                         @endforeach
