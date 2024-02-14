@@ -24,9 +24,9 @@ class BenefitController extends Controller
     public function create()
     {
         $benefits= Benefit::query()->paginate(10);
-        $insuranceCovers = InsuranceCover::with('benefit')->get();
-        $insurers = InsuranceCover::all();
-        return view('benefit.create',compact('benefits','insurers'));
+        $insuranceCovers = InsuranceCover::pluck('name', 'id');
+
+        return view('benefit.create',compact('benefits','insuranceCovers'));
     }
 
     /**
@@ -36,11 +36,12 @@ class BenefitController extends Controller
     {
 
         $benefit = $request->validate([
-            'insurance_cover_id' => 'required',
+            'insurance_cover' => 'required',
             'benefit' => 'required',
             'value' => 'required|integer',
             'status' => 'required',
-            'cost' => 'nullable|integer'
+            'cost' => 'nullable|integer',
+            'insurance_cover_id'=>'required'
         ]);
         $benefit = Benefit::create($request->all());
 
@@ -60,8 +61,8 @@ class BenefitController extends Controller
      */
     public function edit(Benefit $benefit)
     {
-        $insurers = InsuranceCover::pluck('insurer', 'id');
-        return view('benefit.edit', compact('benefit','insurers'));
+        $insuranceCovers = InsuranceCover::pluck('name', 'id');
+        return view('benefit.edit', compact('benefit','insuranceCovers'));
     }
 
     /**
@@ -73,8 +74,8 @@ class BenefitController extends Controller
 
         $benefit->save();
         $benefits= benefit::query()->paginate(10);
-        $insurers = InsuranceCover::pluck('insurer', 'id');
-        return view('benefit.create', compact('benefits','insurers'));
+        $insuranceCovers = InsuranceCover::pluck('name', 'id');
+        return view('benefit.create', compact('benefits','insuranceCovers'));
     }
 
     /**
@@ -84,7 +85,7 @@ class BenefitController extends Controller
     {
         $benefit->delete();
         $benefits= Benefit::query()->paginate(10);
-        $insurers = InsuranceCover::pluck('insurer', 'id');
-        return view('benefit.create',compact('benefits','insurers'));
+        $insuranceCovers = InsuranceCover::pluck('name', 'id');
+        return view('benefit.create',compact('benefits','insuranceCovers'));
     }
 }

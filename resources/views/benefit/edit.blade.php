@@ -49,17 +49,20 @@
                                         <div class="row">
 
                                         
+                                            
+
                                             <div class="col-lg-4">
-                                                <label class="form-label" for="insuranceCover">Insurance Cover</label>
+                                        <label class="form-label" for="insurance_cover">Insurance Cover</label>
 
-                                                <select class="form-select" type="text" id="insuranceCover" name="insuranceCover" required>
-                                                    <!-- <option value="{{$benefit->insuranceCover}}" selected >{{$benefit->insuranceCover}}</option> -->
+                                        <select class="form-select" type="text" id="insuranceCover" name="insurance_cover_id" required>
+                                            <!-- <option value="" selected disabled >Select Insurance Cover</option> -->
 
-                                                    @foreach($insurers as $insurer )
-                                                        <option value="{{ $insurer }}"  {{ $insurer == $benefit->insuranceCover ? 'selected' : '' }} >{{ $insurer }}</option>
-                                                    @endforeach
-                                                </select>                                       
-                                            </div>
+                                            @foreach($insuranceCovers as $id => $insuranceCover )
+                                                <option value="{{ $id }}"  {{ $insuranceCover == $benefit->insurance_cover ? 'selected' : '' }} >{{ $insuranceCover }}</option>
+                                            @endforeach
+                                        </select>
+                                        <input type="hidden" name="insurance_cover" id="insurance_cover" value="{{ $benefit->insurance_cover }}" required>
+                                    </div>
 
                                             <!--end col-->
                                             <div class=" col-lg-4">
@@ -136,4 +139,13 @@
 
         </div> <!-- container-fluid -->
     </div><!-- End Page-content -->
+
+    
+        <script>
+
+            document.getElementById('insuranceCover').addEventListener('change', function() {
+                var selectedOption = this.options[this.selectedIndex];
+                document.getElementById('insurance_cover').value = selectedOption.text;
+            });
+        </script>
 @endsection

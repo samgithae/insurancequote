@@ -9,13 +9,8 @@ class InsuranceCover extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "insurer",
-        "cost",
-        "minimum_value",
-        "maximum_value",
-        "basic_rate",
-        "minimum_premium",
-        "description",
+        "insurance_provider",
+        "name",
         'insurance_provider_id'
     ];
 
@@ -32,5 +27,9 @@ class InsuranceCover extends Model
     public function benefits()
     {
         return $this->hasMany(Benefit::class);
+    }
+    public function insuranceCoverRate()
+    {
+        return $this->hasMany(InsuranceCoverRate::class);
     }
 }

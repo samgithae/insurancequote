@@ -51,6 +51,9 @@
                                 <a href="{{route("insuranceCover.index")}}" class="nav-link" data-key="t-Settings"> Insurance Covers </a>
                             </li>
                             <li class="nav-item">
+                                <a href="{{route("insuranceCoverRate.index")}}" class="nav-link" data-key="t-Settings"> Insurance Cover Rates </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{route("benefit.index")}}" class="nav-link" data-key="t-Settings"> Insurance Benefits </a>
                             </li>
 

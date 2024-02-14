@@ -13,13 +13,8 @@ return new class extends Migration
     {
         Schema::create('insurance_covers', function (Blueprint $table) {
             $table->id();
-            $table->string("insurer");
-            $table->string("cost");
-            $table->integer("minimum_value");
-            $table->integer("maximum_value");
-            $table->integer("basic_rate");
-            $table->integer("minimum_premium");
-            $table->string("description")->nullable();
+            $table->string("insurance_provider");
+            $table->string("name");
             $table->timestamps();
         });
     }

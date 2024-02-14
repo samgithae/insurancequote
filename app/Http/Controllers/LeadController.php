@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lead;
 use App\Models\InsuranceProvider;
-use App\Models\InsuranceCover;
+use App\Models\InsuranceCoverRate;
 use DB;
 use Illuminate\Http\Request;
 
@@ -46,14 +46,14 @@ class LeadController extends Controller
     {
         $vehicle_value= $lead->vehicle_value;
 
-        $insuranceCovers= InsuranceCover::query()
+        $insuranceCoverRates= InsuranceCoverRate::query()
             ->where('minimum_value','<',$vehicle_value)
            ->where('maximum_value','>=',$vehicle_value)
             ->with('insuranceProvider')
             ->get();
 
         $cover_prices = array();
-       foreach ($insuranceCovers as $cover) {
+       foreach ($insuranceCoverRates as $cover) {
            $calculatedPremium = ($cover->basic_rate / 100) * $vehicle_value;
            $actualPremium = 0;
            if ($calculatedPremium < $cover->minimum_premium) {

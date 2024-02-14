@@ -5,16 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Benefit extends Model
+class InsuranceCoverRate extends Model
 {
     use HasFactory;
     protected $fillable = [
         "insurance_cover",
-        "benefit",
-        "value",
-        "status",
-        "cost",
-        'insurance_cover_id'
+        "minimum_value",
+        "maximum_value",
+        "basic_rate",
+        "minimum_premium",
+        "description",
+        "insurance_cover_id"
     ];
 
     public function insuranceCover()

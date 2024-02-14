@@ -50,7 +50,7 @@
                                 @foreach($benefits as $benefit)
                                 <tr>
                                     <th scope="row">{{$counter++}} </th>
-                                    <td>{{$benefit->insuranceCover}}</td>
+                                    <td>{{$benefit->insurance_cover}}</td>
                                     <td>{{$benefit->benefit}}</td>
                                     <td>{{$benefit->value}}</td>
                                     <td>{{$benefit->status}}</td>

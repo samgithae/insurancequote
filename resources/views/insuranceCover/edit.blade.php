@@ -52,61 +52,24 @@
                                             <div class="col-lg-3">
                                                 <label class="form-label" for="insuranceProvider">Insurance Provider</label>
                                                 <select class="form-select" type="text" id="insuranceProvider" name="insurance_provider_id" required>
-                                                    <!-- <option value="{{$insuranceCover->insurance_provider_id}}" selected disabled>{{$insuranceCover->insurer}}</option> -->
+                                                    <
                                                     @foreach($insuranceProviders as $id => $insuranceProvider)
                                                         <option value="{{ $id }}" {{ $id == $insuranceCover->insurance_provider_id ? 'selected' : '' }} >{{ $insuranceProvider }}</option>
                                                     @endforeach
                                                 </select>
-                                                <input type="hidden" name="insurer" id="insurer" value="{{ $insuranceCover->insurer }}" required>
+                                                <input type="hidden" name="insurance_provider" id="insurance_provider" value="{{ $insuranceCover->insurance_provider }}" required>
                                             </div>
 
-                                            
-                                            <div class="col-xxl-3 col-md-3">
-                                                <div>
-                                                    <label for="cost" class="form-label"> Cost
-                                                    </label>
-                                                    <input type="number" value="{{$insuranceCover->cost}}"  name="cost" class="form-control" id="cost"
-                                                           placeholder="Enter Cost">
-                                                </div>
-                                            </div>
+                            
 
                                             <div class="col-lg-3">
                                         <div>
-                                            <label for="minimum_value" class="form-label">Minimum Value</label>
-                                            <input type="number" value="{{$insuranceCover->minimum_value}}"class="form-control" id="minimum_value" name="minimum_value" placeholder="Enter Minimum Value" >
+                                            <label for="minimum_value" class="form-label">Insurance Cover Name</label>
+                                            <input type="text" value="{{$insuranceCover->name}}"class="form-control" id="name" name="name" placeholder="Enter Cover Name" >
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-3">
-                                        <div>
-                                            <label for="maximum_value" class="form-label">Maximum Value</label>
-                                            <input type="number" value="{{$insuranceCover->maximum_value}}" class="form-control" id="maximum_value" name="maximum_value" placeholder="Enter Maximum Value" >
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3">
-                                        <div>
-                                            <label for="basic_rate" class="form-label">Basic Rate</label>
-                                            <input type="number" value="{{$insuranceCover->basic_rate}}"class="form-control" id="basic_rate" name="basic_rate" placeholder="Enter Basic Rate" >
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3">
-                                        <div>
-                                            <label for="minimum_premium" class="form-label">Minimum Premium</label>
-                                            <input type="number" value="{{$insuranceCover->minimum_premium}}" class="form-control" id="minimum_premium" name="minimum_premium" placeholder="Enter Minimum Premium" >
-                                        </div>
-                                    </div>
-
-                                            <div class="col-xxl-3 col-md-3">
-                                                <div>
-                                                    <label for="description" class="form-label"> Description
-                                                    </label>
-                                                    <input type="text" value="{{$insuranceCover->description}}"  name="description" class="form-control" id="description"
-                                                           placeholder="Enter Description">
-                                                </div>
-                                            </div>
-                                            
+                                                                                
 
                                             <!--end col-->
                                             <div class="col-xxl-2 col-xl-2 col-md-6">
@@ -149,7 +112,7 @@
 
                 document.getElementById('insuranceProvider').addEventListener('change', function() {
                     var selectedOption = this.options[this.selectedIndex];
-                    document.getElementById('insurer').value = selectedOption.text;
+                    document.getElementById('insurance_provider').value = selectedOption.text;
                 });
     </script>
 

@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('benefits', function (Blueprint $table) {
+        Schema::create('insurance_cover_rates', function (Blueprint $table) {
             $table->id();
             $table->string("insurance_cover");
-            $table->string("benefit");
-            $table->integer("value");
-            $table->string("status");
-            $table->integer("cost")->nullable();
-
+            $table->integer("minimum_value")->nullable();
+            $table->integer("maximum_value")->nullable();
+            $table->integer("basic_rate")->nullable();
+            $table->integer("minimum_premium")->nullable();
+            $table->string("description")->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('benefits');
+        Schema::dropIfExists('insurance_cover_rates');
     }
 };

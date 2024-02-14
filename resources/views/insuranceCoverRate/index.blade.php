@@ -8,11 +8,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Insurance Covers</h4>
+                        <h4 class="mb-sm-0">Insurance Cover Rates</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">View insurance Covers</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">View insurance Cover Rates</a></li>
 
                             </ol>
                         </div>
@@ -27,7 +27,7 @@
                 <div class="col-xl-12 offset-lg-0">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title mb-0">View all insurance Covers</h4>
+                            <h4 class="card-title mb-0">View all insurance Cover Rates</h4>
                         </div><!-- end card header -->
                         <div class="card-body">
                             <!-- Hoverable Rows -->
@@ -37,27 +37,33 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">insurance Provider</th>
-                                    <th scope="col">Insurance Cover Name</th>
+                                    <th scope="col">insurance Cover</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Basic Rate (%) </th>
+                                    <th scope="col">Minimum Premium </th>
                                     <!-- <th scope="col">Action</th> -->
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @php $counter = 1 @endphp
-                                @foreach($insuranceCovers as $insuranceCover)
+                                @foreach($insuranceCoverRates as $insuranceCoverRate)
                                 <tr>
                                     <th scope="row">{{$counter++}} </th>
-                                    <td>{{$insuranceCover->insurance_provider}}</td>
-                                    <td>{{$insuranceCover->name}}</td>
+                                    <td>{{$insuranceCoverRate->insurance_cover}}</td>
+                                    <td>{{$insuranceCoverRate->description}}</td>
+                                    <td>{{$insuranceCoverRate->basic_rate}} </td>
+                                    <td> {{$insuranceCoverRate->minimum_premium }}</td>
+
+
                                     <!-- <td>
                                       <div class="d-flex gap-2 justify-content-end">
                                           <div class="edit">
-                                              <a href="{{route('insuranceCover.edit', $insuranceCover->id)}}"
+                                              <a href="{{route('insuranceCoverRate.edit', $insuranceCoverRate->id)}}"
                                                  class="btn btn-sm btn-success edit-item-btn">Edit</a>
                                           </div>
                                           <div class="remove">
                                               <form class="needs-validation" novalidate
-                                                    action="{{route('insuranceCover.destroy',$insuranceCover)}}"
+                                                    action="{{route('insuranceCoverRate.destroy',$insuranceCoverRate)}}"
                                                     method="post">
 
                                                   @csrf
@@ -70,12 +76,14 @@
                                           </div>
                                       </div>
                                     </td> -->
+
+
                                 </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                             <div class="container d-flex align-content-end">
-                                {{$insuranceCovers->links()}}
+                                {{$insuranceCoverRates->links()}}
                             </div>
                         </div>
 
@@ -84,7 +92,7 @@
                             <div class="col-12">
 
                             <div style="display: flex; justify-content: center; align-items: center;"> 
-                            <form action="{{route('insuranceCover.create')}}" method="get">
+                            <form action="{{route('insuranceCoverRate.create')}}" method="get">
                                 <button type="submit" class="btn btn-success btn-label right ms-auto m-4" style="text-align:centre"  ><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Add/Edit Covers</button>
                             </form>
                             </div>                           

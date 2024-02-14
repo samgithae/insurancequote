@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InsuranceCoverRateController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -32,5 +33,6 @@ Route::resource('leads', \App\Http\Controllers\LeadController::class);
 Route::resource('insuranceProvider', \App\Http\Controllers\InsuranceProviderController::class);
 Route::resource('insuranceCover', \App\Http\Controllers\InsuranceCoverController::class);
 Route::resource('benefit', \App\Http\Controllers\BenefitController::class);
+Route::resource('insuranceCoverRate', \App\Http\Controllers\InsuranceCoverRateController::class);
 
 require __DIR__.'/auth.php';
