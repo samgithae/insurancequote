@@ -49,7 +49,7 @@ class LeadController extends Controller
         $insuranceCoverRates= InsuranceCoverRate::query()
             ->where('minimum_value','<',$vehicle_value)
            ->where('maximum_value','>=',$vehicle_value)
-            ->with('insuranceProvider')
+            ->with('insuranceCover')
             ->get();
 
         $cover_prices = array();
@@ -65,7 +65,7 @@ class LeadController extends Controller
        }
 
 
-        return view('leads.show', compact('lead','insuranceCovers', 'cover_prices'));
+        return view('leads.show', compact('lead','insuranceCoverRates', 'cover_prices'));
     }
 
     /**

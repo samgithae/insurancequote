@@ -19,6 +19,6 @@ class Benefit extends Model
 
     public function insuranceCover()
     {
-        return $this->belongsTo(InsuranceCover::class);
+        return $this->belongsTo(InsuranceCover::class,'insurance_cover_id')->withDefault();
     }
 }

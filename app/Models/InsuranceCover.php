@@ -17,7 +17,7 @@ class InsuranceCover extends Model
         // One to one relationship
     public function insuranceProvider()
     {
-        return $this->belongsTo(InsuranceProvider::class);
+        return $this->belongsTo(InsuranceProvider::class,'insurance_provider_id')->withDefault();
     }
 
     public function benefit()
@@ -28,7 +28,7 @@ class InsuranceCover extends Model
     {
         return $this->hasMany(Benefit::class);
     }
-    public function insuranceCoverRate()
+    public function rates()
     {
         return $this->hasMany(InsuranceCoverRate::class);
     }
