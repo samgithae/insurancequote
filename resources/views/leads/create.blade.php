@@ -61,27 +61,27 @@
 
                                             <div class="vehicle-options">
                                                     <figure style="margin:auto;" >
-                                                        <img src="/assets/images/car.png" alt="Personal" onclick="showFields('personal')" id="personalImg" style="border: 2px solid black; margin-right: 10px;">
+                                                        <img src="/assets/images/car.png" alt="Personal" onclick="showFields('personal')" id="personalImg" style="border: 2px solid black; margin-right: 10px; padding: 20px; border-radius: 30px; ">
                                                         <figcaption><strong> Personal </strong></figcaption>
                                                     </figure>
                                                     <figure style="margin:auto;">
-                                                        <img src="/assets/images/pickup.png" alt="Commercial" onclick="showFields('commercial')" id="commercialImg" style="border: 2px solid black; margin-right: 10px;">
+                                                        <img src="/assets/images/pickup.png" alt="Commercial" onclick="showFields('commercial')" id="commercialImg" style="border: 2px solid black; margin-right: 10px; padding: 20px; border-radius: 30px;">
                                                         <figcaption><strong> Comercial </strong></figcaption>
                                                     </figure>
                                                     <figure style="margin:auto;">
-                                                        <img src="/assets/images/publictransport.png" alt="PSV" onclick="showFields('psv')" id="psvImg" style="border: 2px solid black;">
+                                                        <img src="/assets/images/publictransport.png" alt="PSV" onclick="showFields('psv')" id="psvImg" style="border: 2px solid black; padding: 20px; border-radius: 30px;">
                                                         <figcaption><strong> PSV </strong></figcaption>
                                                     </figure>
                                                 </div>
 
 
                                             <div class="row">
-                                                
+
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="steparrow-gen-info-vehicle_use">Has the vehicle been valued by a professional valuer in the last 18 months?</label>
-                                                        <select  class="form-select"   id="valued_in_last_18_months" name="valued_in_last_18_months" required>                                                                
-                                                                            <option value="yes">Yes</option>                                                                
+                                                        <select  class="form-select"   id="valued_in_last_18_months" name="valued_in_last_18_months" required>
+                                                                            <option value="yes">Yes</option>
                                                                             <option value="no">No</option>
                                                                             </select>
                                                         <div class="invalid-feedback">Please select an option</div>
@@ -240,7 +240,7 @@
                                                                                         <option value="Zonda">Zonda</option>
                                                                                         <option value="Zontes">Zontes</option>
                                                                                         <option value="ZX Auto">ZX Auto</option>
-                                                                                        </select>                                                                                
+                                                                                        </select>
                                                 <div class="invalid-feedback">Please enter Vehicle Model</div>
                                             </div>
                                                 </div>
@@ -249,11 +249,11 @@
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="steparrow-gen-info-vehicle_use">Vehicle Use</label>
-                                                        <select class="form-select" type="text" id="vehicle_use" name="vehicle_use" required>                                                                
+                                                        <select class="form-select" type="text" id="vehicle_use" name="vehicle_use" required>
                                                                                             <option value="" selected disabled>Choose vehicle use</option>
                                                                                             <option value="personal" >Personal</option>
                                                                                             <option value="commercial" >Commercial</option>
-                                                                                            <option value="psv" >psv</option>                                                                
+                                                                                            <option value="psv" >psv</option>
                                                                                         </select>
                                                         <div class="invalid-feedback">Please enter a valid Vehicle Use</div>
                                                     </div>
@@ -262,7 +262,7 @@
 
                                             <!-- private option -->
                                             <div id="personalFields">
-                                                                                        
+
                                             </div>
 
                                             <div id="psvFields" class="hidden">
@@ -273,22 +273,22 @@
                                             </div>
                                             </div>
 
-                                            
 
-                                                
+
+
 
                                                 <div id="commercialFields" class="hidden">
                                                 <div>
                                                     <label class="form-label" for="steparrow-gen-info-vehicle_type">Vehicle Type</label>
                                                     <select class="form-select" type="text" id="vehicle_type" name="vehicle_type" >
-                                                                                            <option value="" selected >Select type</option>                                                            
+                                                                                            <option value="" selected >Select type</option>
                                                                                             <option value="pickup">pickup</option>
                                                                                             <option value="canter">canter</option>
-                                                                                            <option value="lorry">lorry</option>  
+                                                                                            <option value="lorry">lorry</option>
                                                                                         </select>
                                                     <div class="invalid-feedback">Please enter Vehicle Type</div>
                                                 </div>
-                                                </div>                                            
+                                                </div>
 
 
                                             <div class="row">
@@ -299,7 +299,7 @@
                                                 <label class="form-label" for="steparrow-gen-info-yom">Year of Manufacture</label>
                                                 <select class="form-select" type="number" id="yom" name="yom" required>
                                                                                             <option value="" selected disabled>Select year</option>
-                                                                                            
+
                                                                                             <option value="2000">2000</option>
                                                                                             <option value="2001">2001</option>
                                                                                             <option value="2002">2002</option>
@@ -325,8 +325,8 @@
                                                                                             <option value="2022">2022</option>
                                                                                             <option value="2023">2023</option>
                                                                                             <option value="2024">2024</option>
-                                                                                                                                                                
-                                                                                        </select>                                                                           
+
+                                                                                        </select>
                                                 <div class="invalid-feedback">Please enter Year of Manufacture</div>
                                             </div>
                                             </div>
@@ -340,7 +340,7 @@
                                             </div>
 
 
-                                            
+
 
                                         </div>
                                         <div class="d-flex align-items-start gap-3 mt-4">
@@ -410,28 +410,28 @@
     <script>
         // Show fields based on the default selection
         showFields('personal');
-      
+
         function showFields(vehicleType) {
           // Reset visibility for all fields
           document.getElementById("personalFields").classList.add("hidden");
           document.getElementById("commercialFields").classList.add("hidden");
           document.getElementById("psvFields").classList.add("hidden");
-      
+
           // Highlight the selected image
           document.getElementById("personalImg").style.border = "2px solid black";
           document.getElementById("commercialImg").style.border = "2px solid black";
           document.getElementById("psvImg").style.border = "2px solid black";
-      
+
           // Show the fields based on the selected vehicle type
           if (vehicleType === 'personal') {
             document.getElementById("personalFields").classList.remove("hidden");
-            document.getElementById("personalImg").style.border = "2px solid red";
+            document.getElementById("personalImg").style.border = "2px solid #405189";
           } else if (vehicleType === 'commercial') {
             document.getElementById("commercialFields").classList.remove("hidden");
-            document.getElementById("commercialImg").style.border = "2px solid red";
+            document.getElementById("commercialImg").style.border = "2px solid #405189";
           } else if (vehicleType === 'psv') {
             document.getElementById("psvFields").classList.remove("hidden");
-            document.getElementById("psvImg").style.border = "2px solid red";
+            document.getElementById("psvImg").style.border = "2px solid #405189";
           }
         }
 
