@@ -15,11 +15,12 @@ class InsuranceCoverRate extends Model
         "basic_rate",
         "minimum_premium",
         "description",
-        "insurance_cover_id"
+        "insurance_cover_id",
+
     ];
 
     public function insuranceCover()
     {
-        return $this->belongsTo(InsuranceCover::class);
+        return $this->belongsTo(InsuranceCover::class,'insurance_cover_id')->withDefault();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\InsuranceCover;
 use App\Models\InsuranceCoverRate;
+use App\Models\InsuranceProvider;
 use Illuminate\Http\Request;
 
 class InsuranceCoverRateController extends Controller
@@ -23,9 +24,10 @@ class InsuranceCoverRateController extends Controller
     public function create()
     {
         $insuranceCoverRates= InsuranceCoverRate::query()->paginate(10);
+        $insuranceProviders= InsuranceProvider::all();
         $insuranceCovers = InsuranceCover::pluck('name', 'id');
 
-        return view('insuranceCoverRate.create',compact('insuranceCoverRates','insuranceCovers'));
+        return view('insuranceCoverRate.create',compact('insuranceCoverRates','insuranceCovers','insuranceProviders'));
     }
 
     /**
@@ -43,7 +45,7 @@ class InsuranceCoverRateController extends Controller
             'insurance_cover_id' => 'required'
         ]);
 
-                
+
         InsuranceCoverRate::create($insuranceCoverRate);
         return redirect()->route('insuranceCoverRate.create');
     }
