@@ -58,20 +58,31 @@
 
 
                                             <input type="hidden" class="form-control" id="steparrow-gen-info-email-input"  value="sam@gm.com" >
+                                            <h4 class="text-center">Choose your Vehicle Use</h4>
 
-                                            <div class="vehicle-options">
-                                                    <figure style="margin:auto;" >
-                                                        <img src="/assets/images/car.png" alt="Personal" onclick="showFields('personal')" id="personalImg" style="border: 2px solid black; margin-right: 10px; padding: 20px; border-radius: 30px; ">
-                                                        <figcaption><strong> Personal </strong></figcaption>
-                                                    </figure>
-                                                    <figure style="margin:auto;">
-                                                        <img src="/assets/images/pickup.png" alt="Commercial" onclick="showFields('commercial')" id="commercialImg" style="border: 2px solid black; margin-right: 10px; padding: 20px; border-radius: 30px;">
-                                                        <figcaption><strong> Comercial </strong></figcaption>
-                                                    </figure>
-                                                    <figure style="margin:auto;">
-                                                        <img src="/assets/images/publictransport.png" alt="PSV" onclick="showFields('psv')" id="psvImg" style="border: 2px solid black; padding: 20px; border-radius: 30px;">
-                                                        <figcaption><strong> PSV </strong></figcaption>
-                                                    </figure>
+                                            <div class="vehicle-optionsk">
+                                                <div class="row">
+                                                    <div class="col-md-3 offset-lg-2">
+                                                        <figure>
+                                                        <img src="{{ asset('assets/images/car.png')}}" alt="Personal" onclick="showFields('personal')" id="personalImg" class="img img-thumbnail rounded-50">
+                                                            <figcaption><strong> Personal </strong></figcaption>
+                                                        </figure>
+
+                                                    </div>
+                                                    <div class="col-md-3 rounded-circle">
+                                                        <figure>
+                                                        <img src="{{ asset('assets/images/pickup.png')}}" alt="Commercial" onclick="showFields('commercial')" id="commercialImg" class="img img-thumbnail ">
+                                                            <figcaption><strong> Commercial </strong></figcaption>
+                                                        </figure>
+
+                                                    </div>
+                                                        <div class="col-md-3">
+                                                            <figure>
+                                                        <img src="{{ asset('assets/images/publictransport.png')}}" alt="PSV" onclick="showFields('psv')" id="psvImg" class="img img-thumbnail ">
+                                                                <figcaption><strong>PSV</strong></figcaption>
+                                                            </figure>
+                                                        </div>
+                                                </div>
                                                 </div>
 
 
@@ -425,13 +436,16 @@
           // Show the fields based on the selected vehicle type
           if (vehicleType === 'personal') {
             document.getElementById("personalFields").classList.remove("hidden");
-            document.getElementById("personalImg").style.border = "2px solid #405189";
+            document.getElementById("personalImg").style.border = "2px solid #C01E2E";
+            document.getElementById("personalImg").style.background = "#F8F092";
           } else if (vehicleType === 'commercial') {
             document.getElementById("commercialFields").classList.remove("hidden");
-            document.getElementById("commercialImg").style.border = "2px solid #405189";
+            document.getElementById("commercialImg").style.border = "2px solid #C01E2E";
+              document.getElementById("commercialImg").style.background = "#F8F092";
           } else if (vehicleType === 'psv') {
             document.getElementById("psvFields").classList.remove("hidden");
-            document.getElementById("psvImg").style.border = "2px solid #405189";
+            document.getElementById("psvImg").style.border = "2px solid #C01E2E";
+              document.getElementById("psvImg").style.background = "#F8F092";
           }
         }
 
