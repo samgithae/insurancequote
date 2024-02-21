@@ -37,7 +37,7 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">insurance Provider</th>
+                                    <th scope="col">insurance Provider Name</th>
                                     <th scope="col">Insurance Cover Name</th>
                                     <!-- <th scope="col">Action</th> -->
                                 </tr>
@@ -47,7 +47,7 @@
                                 @foreach($insuranceCovers as $insuranceCover)
                                 <tr>
                                     <th scope="row">{{$counter++}} </th>
-                                    <td>{{$insuranceCover->insurance_provider}}</td>
+                                    <td>{{$insuranceCover->insurance_provider_name}}</td>
                                     <td>{{$insuranceCover->name}}</td>
                                     <!-- <td>
                                       <div class="d-flex gap-2 justify-content-end">
@@ -83,17 +83,17 @@
                         <div class="row">
                             <div class="col-12">
 
-                            <div style="display: flex; justify-content: center; align-items: center;"> 
+                            <div style="display: flex; justify-content: center; align-items: center;">
                             <form action="{{route('insuranceCover.create')}}" method="get">
                                 <button type="submit" class="btn btn-success btn-label right ms-auto m-4" style="text-align:centre"  ><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Add/Edit Covers</button>
                             </form>
-                            </div>                           
-                                
+                            </div>
+
                             </div>
                         </div>
 
                     </div>
-                       
+
                 </div>
 
 

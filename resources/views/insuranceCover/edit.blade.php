@@ -48,19 +48,19 @@
                                         @csrf
                                         <div class="row">
 
-                                            
+
                                             <div class="col-lg-3">
-                                                <label class="form-label" for="insuranceProvider">Insurance Provider</label>
+                                                <label class="form-label" for="insuranceProvider">Insurance Provider Name</label>
                                                 <select class="form-select" type="text" id="insuranceProvider" name="insurance_provider_id" required>
                                                     <
                                                     @foreach($insuranceProviders as $id => $insuranceProvider)
                                                         <option value="{{ $id }}" {{ $id == $insuranceCover->insurance_provider_id ? 'selected' : '' }} >{{ $insuranceProvider }}</option>
                                                     @endforeach
                                                 </select>
-                                                <input type="hidden" name="insurance_provider" id="insurance_provider" value="{{ $insuranceCover->insurance_provider }}" required>
+                                                <input type="hidden" name="insurance_provider_name" id="insurance_provider_name" value="{{ $insuranceCover->insurance_provider_name }}" required>
                                             </div>
 
-                            
+
 
                                             <div class="col-lg-3">
                                         <div>
@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
 
-                                                                                
+
 
                                             <!--end col-->
                                             <div class="col-xxl-2 col-xl-2 col-md-6">

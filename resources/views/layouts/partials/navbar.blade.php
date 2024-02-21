@@ -56,6 +56,12 @@
                             <li class="nav-item">
                                 <a href="{{route("benefit.index")}}" class="nav-link" data-key="t-Settings"> Insurance Benefits </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{route("excess.index")}}" class="nav-link" data-key="t-Settings"> Excess </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route("order.index")}}" class="nav-link" data-key="t-Settings"> Orders </a>
+                            </li>
 
 
                         </ul>

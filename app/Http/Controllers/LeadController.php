@@ -73,8 +73,27 @@ class LeadController extends Controller
      */
     public function edit(Lead $lead)
     {
-        //
-        return view('leads.edit', compact('lead'));
+        $vehicle_value= $lead->vehicle_value;
+
+        $insuranceCoverRates= InsuranceCoverRate::query()
+            ->where('minimum_value','<',$vehicle_value)
+            ->where('maximum_value','>=',$vehicle_value)
+            ->with('insuranceCover')
+            ->get();
+
+        $cover_prices = array();
+        foreach ($insuranceCoverRates as $cover) {
+            $calculatedPremium = ($cover->basic_rate / 100) * $vehicle_value;
+            $actualPremium = 0;
+            if ($calculatedPremium < $cover->minimum_premium) {
+                $actualPremium = $cover->minimum_premium;
+            } else {
+                $actualPremium = $calculatedPremium;
+            }
+            $cover_prices[$cover->id] = $actualPremium;
+        }
+
+        return view('leads.edit', compact('lead','insuranceCoverRates', 'cover_prices'));
     }
 
     /**

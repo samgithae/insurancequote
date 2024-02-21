@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('insurance_cover_rates', function (Blueprint $table) {
             $table->id();
-            $table->string("insurance_cover");
+            $table->string("insurance_cover_name");
             $table->integer("minimum_value")->nullable();
             $table->integer("maximum_value")->nullable();
             $table->integer("basic_rate")->nullable();

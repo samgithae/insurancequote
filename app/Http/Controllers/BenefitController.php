@@ -37,7 +37,7 @@ class BenefitController extends Controller
 
         $benefit = $request->validate([
             'insurance_cover' => 'required',
-            'benefit' => 'required',
+            'name' => 'required',
             'value' => 'required|integer',
             'status' => 'required',
             'cost' => 'nullable|integer',

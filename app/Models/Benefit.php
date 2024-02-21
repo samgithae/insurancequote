@@ -10,7 +10,7 @@ class Benefit extends Model
     use HasFactory;
     protected $fillable = [
         "insurance_cover",
-        "benefit",
+        "name",
         "value",
         "status",
         "cost",

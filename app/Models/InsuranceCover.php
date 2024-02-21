@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\ExcessController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +10,7 @@ class InsuranceCover extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "insurance_provider",
+        "insurance_provider_name",
         "name",
         'insurance_provider_id'
     ];
@@ -31,5 +32,9 @@ class InsuranceCover extends Model
     public function rates()
     {
         return $this->hasMany(InsuranceCoverRate::class);
+    }
+    public function excesses()
+    {
+        return $this->hasMany(Excess::class);
     }
 }

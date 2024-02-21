@@ -36,7 +36,7 @@ class InsuranceCoverRateController extends Controller
     public function store(Request $request)
     {
         $insuranceCoverRate = $request->validate([
-            'insurance_cover' => 'required',
+            'insurance_cover_name' => 'required',
             'minimum_value' => 'nullable',
             'maximum_value'  => 'nullable',
             'basic_rate'  => 'nullable',

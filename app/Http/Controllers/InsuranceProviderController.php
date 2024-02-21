@@ -34,11 +34,12 @@ class InsuranceProviderController extends Controller
         $insuranceProvider = $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'description' => 'nullable',
             'logo' => 'nullable'
         ]);
 
         if ($request->hasFile('logo'))
-         {        
+         {
         $fileName = time().$request->file('logo')->getClientOriginalName();
         $path = $request->file('logo')->storeAs('assets/images/logos',$fileName, 'public');
         $insuranceProvider["logo"]='/storage/'.$path;
