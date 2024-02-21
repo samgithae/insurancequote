@@ -37,7 +37,7 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">insurance Cover</th>
+                                    <th scope="col">insurance Cover Name</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Basic Rate (%) </th>
                                     <th scope="col">Minimum Premium </th>
@@ -49,7 +49,7 @@
                                 @foreach($insuranceCoverRates as $insuranceCoverRate)
                                 <tr>
                                     <th scope="row">{{$counter++}} </th>
-                                    <td>{{$insuranceCoverRate->insurance_cover}}</td>
+                                    <td>{{$insuranceCoverRate->insurance_cover_name}}</td>
                                     <td>{{$insuranceCoverRate->description}}</td>
                                     <td>{{$insuranceCoverRate->basic_rate}} </td>
                                     <td> {{$insuranceCoverRate->minimum_premium }}</td>
@@ -91,17 +91,17 @@
                         <div class="row">
                             <div class="col-12">
 
-                            <div style="display: flex; justify-content: center; align-items: center;"> 
+                            <div style="display: flex; justify-content: center; align-items: center;">
                             <form action="{{route('insuranceCoverRate.create')}}" method="get">
                                 <button type="submit" class="btn btn-success btn-label right ms-auto m-4" style="text-align:centre"  ><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Add/Edit Covers</button>
                             </form>
-                            </div>                           
-                                
+                            </div>
+
                             </div>
                         </div>
 
                     </div>
-                       
+
                 </div>
 
 

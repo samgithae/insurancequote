@@ -48,8 +48,8 @@
                                         @csrf
                                         <div class="row">
 
-                                        
-                                            
+
+
 
                                             <div class="col-lg-4">
                                         <label class="form-label" for="insurance_cover">Insurance Cover</label>
@@ -67,10 +67,10 @@
                                             <!--end col-->
                                             <div class=" col-lg-4">
                                                 <div>
-                                                    <label for="benefit" class="form-label"> Benefit
+                                                    <label for="benefit" class="form-label"> Benefit Name
                                                     </label>
-                                                    <input type="text" value="{{$benefit->benefit}}"  name="benefit" class="form-control" id="benefit"
-                                                           placeholder="Enter Cost">
+                                                    <input type="text" value="{{$benefit->name}}"  name="name" class="form-control" id="name"
+                                                           placeholder="Enter Benefit name">
                                                 </div>
                                             </div>
                                             <div class=" col-lg-4">
@@ -85,15 +85,15 @@
                                         </div>
                                         <div class="row">
 
-                                            <div class="col-lg-4" >                                                  
-                                                <label for="status" class="form-label">Status</label> 
-                                                <select class="form-select" name="status"  required>                                                                                                                    
-                                                <option value="free" {{ $benefit->status == 'free' ? 'selected' : '' }}>Free</option>                                                                
+                                            <div class="col-lg-4" >
+                                                <label for="status" class="form-label">Status</label>
+                                                <select class="form-select" name="status"  required>
+                                                <option value="free" {{ $benefit->status == 'free' ? 'selected' : '' }}>Free</option>
                                                 <option value="paid" {{ $benefit->status == 'paid' ? 'selected' : '' }}>Paid</option>
-                                                </select>                                        
+                                                </select>
                                             </div>
 
-                                        
+
                                             <div class=" col-lg-4">
                                                 <div>
                                                     <label for="cost" class="form-label"> Cost
@@ -101,7 +101,7 @@
                                                     <input type="number" value="{{$benefit->cost}}"  name="cost" class="form-control" id="cost"
                                                            placeholder="Enter Cost">
                                                 </div>
-                                            </div>                                            
+                                            </div>
 
                                             <!--end col-->
                                             <div class=" col-lg-4">
@@ -140,7 +140,7 @@
         </div> <!-- container-fluid -->
     </div><!-- End Page-content -->
 
-    
+
         <script>
 
             document.getElementById('insuranceCover').addEventListener('change', function() {

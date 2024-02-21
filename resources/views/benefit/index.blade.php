@@ -51,7 +51,7 @@
                                 <tr>
                                     <th scope="row">{{$counter++}} </th>
                                     <td>{{$benefit->insurance_cover}}</td>
-                                    <td>{{$benefit->benefit}}</td>
+                                    <td>{{$benefit->name}}</td>
                                     <td>{{$benefit->value}}</td>
                                     <td>{{$benefit->status}}</td>
                                     <td>{{$benefit->cost}}</td>
@@ -89,17 +89,17 @@
                         <div class="row">
                             <div class="col-12">
 
-                            <div style="display: flex; justify-content: center; align-items: center;"> 
+                            <div style="display: flex; justify-content: center; align-items: center;">
                             <form action="{{route('benefit.create')}}" method="get">
                                 <button type="submit" class="btn btn-success btn-label right ms-auto m-4" style="text-align:centre"  ><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Add/Edit Benefits</button>
                             </form>
-                            </div>                           
-                                
+                            </div>
+
                             </div>
                         </div>
 
                     </div>
-                       
+
                 </div>
 
 

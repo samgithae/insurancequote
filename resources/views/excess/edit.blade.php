@@ -7,12 +7,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Insurance Providers</h4>
+                        <h4 class="mb-sm-0"> Excesses </h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Insurance Providers</a></li>
-                                <li class="breadcrumb-item active">Update Insurance Providers</li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);"> Excesses </a></li>
+                                <li class="breadcrumb-item active">Update Excesses</li>
                             </ol>
                         </div>
 
@@ -25,7 +25,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header align-items-center d-flex mb-4">
-                            <h4 class="card-title mb-0 flex-grow-1">Update Insurance Providers</h4>
+                            <h4 class="card-title mb-0 flex-grow-1">Update Benefits</h4>
                             <div class="flex-shrink-0">
                                 <div class="form-check form-switch form-switch-right form-switch-md d-none">
                                     <label for="form-grid-showcode" class="form-label text-muted">Show
@@ -43,51 +43,55 @@
 
 
 
-                                    <form class="col-xl-12 col-md-12"  action="{{route('insuranceProvider.update', $insuranceProvider->id)}}" method="post">
+                                    <form class="col-xl-12 col-md-12"  action="{{route('excess.update', $excess->id)}}" method="post">
                                         @method('PUT')
                                         @csrf
                                         <div class="row">
 
-                                            <div class="col-xxl-3 col-md-3">
-                                                <div>
-                                                    <label for="bankName" class="form-label"> Insurance Provider Name
-                                                    </label>
-                                                    <input type="text"  name="name"  value="{{$insuranceProvider->name}}" class="form-control" id="name" placeholder="Enter Insurance Provider name">
-                                                </div>
-                                            </div>
+
+
+
+                                            <div class="col-lg-4">
+                                        <label class="form-label" for="insurance_cover">Insurance Cover Name</label>
+
+                                        <select class="form-select" type="text" id="insuranceCover" name="insurance_cover_id" required>
+                                            <!-- <option value="" selected disabled >Select Insurance Cover</option> -->
+
+                                            @foreach($insuranceCovers as $id => $insuranceCover )
+                                                <option value="{{ $id }}"  {{ $insuranceCover == $excess->insurance_cover ? 'selected' : '' }} >{{ $insuranceCover }}</option>
+                                            @endforeach
+                                        </select>
+                                        <input type="hidden" name="insurance_cover_name" id="insurance_cover_name" value="{{ $excess->insurance_cover_name }}" required>
+                                    </div>
+
                                             <!--end col-->
-                                            <div class="col-xxl-3 col-md-3">
+                                            <div class=" col-lg-4">
                                                 <div>
-                                                    <label for="bankCode" class="form-label"> Email
+                                                    <label for="name" class="form-label"> Excess
                                                     </label>
-                                                    <input type="text" value="{{$insuranceProvider->email}}"  name="email" class="form-control" id="email"
-                                                           placeholder="Enter email">
+                                                    <input type="text" value="{{$excess->name}}"  name="name" class="form-control" id="name"
+                                                           placeholder="Enter Excess Name">
                                                 </div>
                                             </div>
-                                            <div class="col-xxl-3 col-md-3">
+                                            <div class=" col-lg-4">
                                                 <div>
-                                                    <label for="description" class="form-label"> Description
+                                                    <label for="amount" class="form-label"> Amount
                                                     </label>
-                                                    <input type="text" value="{{$insuranceProvider->description}}"  name="description" class="form-control" id="description"
-                                                           placeholder="Enter description">
-                                                </div>
-                                            </div>
-                                            <div class="col-xxl-3 col-md-3">
-                                                <img src="{{$insuranceProvider->logo}}" class="img img-thumbnail ">
-                                                <div>
-                                                    <label for="logo" class="form-label">Update the company Logo</label>
-                                                    <input class="form-control"  type="file" name="logo" id="logo">
+                                                    <input type="number" value="{{$excess->amount}}"  name="amount" class="form-control" id="amount"
+                                                           placeholder="Enter value">
                                                 </div>
                                             </div>
 
+                                        </div>
+                                        <div class="row">
 
                                             <!--end col-->
-                                            <div class="col-xxl-2 col-xl-2 col-md-6">
+                                            <div class=" col-lg-4">
                                                 <div>
                                                     <label for="labelInput" class="form-label">&nbsp;</label>
                                                     <div class="d-flex gap-2">
                                                         <div>
-                                                            <button type="submit" class="btn btn-success">Update Insurance Provider Details</button>
+                                                            <button type="submit" class="btn btn-success">Update Benefit Details</button>
                                                         </div>
 
                                                     </div>
@@ -117,4 +121,13 @@
 
         </div> <!-- container-fluid -->
     </div><!-- End Page-content -->
+
+
+        <script>
+
+            document.getElementById('insuranceCover').addEventListener('change', function() {
+                var selectedOption = this.options[this.selectedIndex];
+                document.getElementById('insurance_cover_name').value = selectedOption.text;
+            });
+        </script>
 @endsection

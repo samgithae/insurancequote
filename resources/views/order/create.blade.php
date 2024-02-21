@@ -10,11 +10,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0"> Benefits </h4>
+                        <h4 class="mb-sm-0"> Orders </h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Add a Benefit</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Add an order </a></li>
 
                             </ol>
                         </div>
@@ -29,62 +29,55 @@
                 <div class="col-xl-10 offset-lg-1">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title mb-0">Add a Benefit</h4>
+                            <h4 class="card-title mb-0">Add an Order</h4>
                         </div><!-- end card header -->
                         <div class="card-body">
-                            <form  method="POST" action="{{ route('benefit.store') }}" class="form-steps"  autocomplete="off">
+                            <form  method="POST" action="{{ route('order.store') }}" class="form-steps"  autocomplete="off">
                                 @csrf
                                 <div class="row mb-3" >
 
                                     <div class="col-lg-4">
-                                        <label class="form-label" for="insurance_cover">Insurance Cover</label>
+                                        <label class="form-label" for="lead">Lead</label>
 
-                                        <select class="form-select" type="text" id="insuranceCover" name="insurance_cover_id" required>
-                                            <option value="" selected disabled >Select Insurance Cover</option>
+                                        <select class="form-select" type="text" id="lead" name="lead_id" required>
+                                            <option value="" selected disabled >Select Lead</option>
 
-                                            @foreach($insuranceCovers as $id => $insuranceCover )
-                                                <option value="{{ $id }}">{{ $insuranceCover }}</option>
+                                            @foreach($leads as $id => $lead )
+                                                <option value="{{ $id }}">{{ $lead }}</option>
                                             @endforeach
                                         </select>
-                                        <input type="hidden" name="insurance_cover" id="insurance_cover" required>
+                                        <input type="hidden" name="lead_name" id="lead_name" required>
                                     </div>
-
 
                                     <div class="col-lg-4">
-                                        <div>
-                                            <label for="name" class="form-label">Benefit</label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Benefit Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div>
-                                            <label for="value" class="form-label">Value</label>
-                                            <input type="number" class="form-control" id="value" name="value" placeholder="Enter Value" required>
-                                        </div>
-                                    </div>
-                                </div>
+                                        <label class="form-label" for="insurance_cover_rate">Insurance Cover Rate</label>
 
-                                <div class="row">
+                                        <select class="form-select" type="number" id="insuranceCoverRate" name="insurance_cover_rate_id" required>
+                                            <option value="" selected disabled >Select Insurance Cover Rate</option>
 
-                                    <div class="col-lg-4" >
-                                        <label for="status" class="form-label">Status</label>
-                                        <select class="form-select" name="status" required>
-                                        <option value="free">Free</option>
-                                        <option value="paid">Paid</option>
+                                            @foreach($insuranceCoverRates as $id => $insuranceCoverRate )
+                                                <option value="{{ $insuranceCoverRate }}">{{ $insuranceCoverRate }}</option>
+                                            @endforeach
                                         </select>
-                                    </div>
-
-
-
-                                    <div class="col-lg-4">
-                                        <div>
-                                            <label for="cost" class="form-label">Cost</label>
-                                            <input type="number" class="form-control" id="cost" name="cost" placeholder="Enter Cost" >
-                                        </div>
+{{--                                        <input type="hidden" name="insurance_cover_rate" id="insurance_cover_rate" required>--}}
                                     </div>
 
                                     <div class="col-lg-4">
-                                        <button type="submit" class="btn btn-success btn-label right ms-auto m-4" data-nexttab="pills-experience-tab"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Add Benefit</button>
+                                        <label class="form-label" for="benefit">Benefit</label>
+
+                                        <select class="form-select" type="text" id="benefit_select" name="benefit_id" required>
+                                            <option value="" selected disabled >Select Benefit</option>
+
+                                            @foreach($benefits as $id => $benefit )
+                                                <option value="{{ $id }}">{{ $benefit }}</option>
+                                            @endforeach
+                                        </select>
+                                        <input type="hidden" name="benefit" id="benefit" required>
+                                    </div>
+
+
+                                    <div class="col-lg-4">
+                                        <button type="submit" class="btn btn-success btn-label right ms-auto m-4" data-nexttab="pills-experience-tab"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Create an Order</button>
 
                                     </div>
 
@@ -103,7 +96,7 @@
                 <div class="col-xl-10 offset-lg-1">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title mb-0">Add a Benefit</h4>
+                            <h4 class="card-title mb-0">Add an order</h4>
                         </div><!-- end card header -->
                         <div class="card-body">
                             <!-- Hoverable Rows -->
@@ -113,33 +106,27 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">Insurance Cover</th>
+                                    <th scope="col">Lead Name</th>
                                     <th scope="col">Benefit</th>
-                                    <th scope="col">Value</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Cost</th>
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @php $counter = 1 @endphp
-                                @foreach($benefits as $benefit)
+                                @foreach($orders as $order)
                                 <tr>
                                     <th scope="row">{{$counter++}} </th>
-                                    <td>{{$benefit->insurance_cover}}</td>
-                                    <td>{{$benefit->name}}</td>
-                                    <td>{{$benefit->value}}</td>
-                                    <td>{{$benefit->status}}</td>
-                                    <td>{{$benefit->cost}}</td>
+                                    <td>{{$order->lead_name}}</td>
+                                    <td>{{$order->benefit}}</td>
                                     <td>
                                       <div class="d-flex gap-2 justify-content-end">
                                           <div class="edit">
-                                              <a href="{{route('benefit.edit', $benefit->id)}}"
+                                              <a href="{{route('order.edit', $order->id)}}"
                                                  class="btn btn-sm btn-success edit-item-btn">Edit</a>
                                           </div>
                                           <div class="remove">
                                               <form class="needs-validation" novalidate
-                                                    action="{{route('benefit.destroy',$benefit)}}"
+                                                    action="{{route('order.destroy',$order)}}"
                                                     method="post">
 
                                                   @csrf
@@ -157,7 +144,7 @@
                                 </tbody>
                             </table>
                             <div class="container d-flex align-content-end">
-                                {{$benefits->links()}}
+                                {{$orders->links()}}
                             </div>
                         </div>
                     </div>
@@ -200,9 +187,14 @@
                         });
                 });
 
-                document.getElementById('insuranceCover').addEventListener('change', function() {
+                document.getElementById('lead').addEventListener('change', function() {
                     var selectedOption = this.options[this.selectedIndex];
-                    document.getElementById('insurance_cover').value = selectedOption.text;
+                    document.getElementById('lead_name').value = selectedOption.text;
+                });
+
+                document.getElementById('benefit_select').addEventListener('change', function() {
+                    var selectedOption = this.options[this.selectedIndex];
+                    document.getElementById('benefit').value = selectedOption.text;
                 });
             </script>
 @endsection

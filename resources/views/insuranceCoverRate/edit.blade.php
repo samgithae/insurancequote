@@ -48,19 +48,19 @@
                                         @csrf
                                         <div class="row">
 
-                                            
+
                                             <div class="col-lg-3">
-                                                <label class="form-label" for="insuranceProvider">Insurance Provider</label>
-                                                <select class="form-select" type="text" id="insuranceProvider" name="insurance_provider_id" required>
+                                                <label class="form-label" for="insuranceProvider">Insurance Cover Name</label>
+                                                <select class="form-select" type="text" id="insuranceProvider" name="insurance_cover_id" required>
                                                     <
                                                     @foreach($insuranceCovers as $id => $insuranceCover)
                                                         <option value="{{ $id }}" {{ $id == $insuranceCoverRate->insurance_cover_id ? 'selected' : '' }} >{{ $insuranceCover }}</option>
                                                     @endforeach
                                                 </select>
-                                                <input type="hidden" name="insurance_cover" id="insurance_cover" value="{{ $insuranceCoverRate->insurance_cover }}" required>
+                                                <input type="hidden" name="insurance_cover_name" id="insurance_cover_name" value="{{ $insuranceCoverRate->insurance_cover_name }}" required>
                                             </div>
 
-                            
+
 
                                             <div class="col-lg-3">
                                         <div>
@@ -98,7 +98,7 @@
                                                            placeholder="Enter Description">
                                                 </div>
                                             </div>
-                                            
+
 
                                             <!--end col-->
                                             <div class="col-xxl-2 col-xl-2 col-md-6">
@@ -141,7 +141,7 @@
 
                 document.getElementById('insuranceCover').addEventListener('change', function() {
                     var selectedOption = this.options[this.selectedIndex];
-                    document.getElementById('insurance_cover').value = selectedOption.text;
+                    document.getElementById('insurance_cover_name').value = selectedOption.text;
                 });
     </script>
 

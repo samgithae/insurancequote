@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('insurance_covers', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string("insurance_provider_name");
-            $table->string("name");
+            $table->string("lead_name")->nullable();
+            $table->integer("lead_id")->nullable();
+            $table->integer("insurance_cover_rate_id")->nullable();
+            $table->string("benefit")->nullable();
+            $table->integer("benefit_id")->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('insurance_covers');
+        Schema::dropIfExists('orders');
     }
 };

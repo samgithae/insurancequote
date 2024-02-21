@@ -34,12 +34,12 @@ class InsuranceCoverController extends Controller
     public function store(Request $request)
     {
         $insuranceCover = $request->validate([
-            'insurance_provider' => 'required',
+            'insurance_provider_name' => 'required',
             'name' => 'required',
             'insurance_provider_id' => 'required'
         ]);
 
-                
+
         InsuranceCover::create($insuranceCover);
         return redirect()->route('insuranceCover.create');
     }
@@ -65,7 +65,7 @@ class InsuranceCoverController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, InsuranceCover $insuranceCover)
-    {        
+    {
         $insuranceCover->fill($request->all());
 
         $insuranceCover->save();

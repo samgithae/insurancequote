@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('benefits', function (Blueprint $table) {
             $table->id();
             $table->string("insurance_cover");
-            $table->string("benefit");
+            $table->string("name");
             $table->integer("value");
             $table->string("status");
             $table->integer("cost")->nullable();

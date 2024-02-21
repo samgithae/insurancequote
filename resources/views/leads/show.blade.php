@@ -453,7 +453,7 @@
                                                                                 <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                                             </div>
                                                                             <div class="flex-grow-1">
-                                                                                <b>{{$benefit->benefit}}</b> {{$benefit->value}}
+                                                                                <b>{{$benefit->name}}</b> {{$benefit->value}}
                                                                             </div>
                                                                         </div>
                                                                     </li>

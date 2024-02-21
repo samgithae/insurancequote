@@ -11,9 +11,10 @@ class InsuranceProvider extends Model
     protected $fillable = [
         "name",
         "email",
+        "description",
         "logo"
     ];
-    
+
     //  one to many relationship
     public function insuranceCovers()
     {

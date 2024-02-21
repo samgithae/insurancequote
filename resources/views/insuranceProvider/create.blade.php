@@ -35,22 +35,28 @@
                             <form  method="POST" action="{{ route('insuranceProvider.store') }}" class="form-steps" enctype="multipart/form-data" autocomplete="off">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <div>
-                                            <label for="name" class="form-label">Name</label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
+                                            <label for="name" class="form-label">Insurance Provider Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Insurance Provider Name" required>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <div>
                                             <label for="email" class="form-label">Email</label>
                                             <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <div>
                                             <label for="logo" class="form-label">Enter the company Logo</label>
                                             <input class="form-control" type="file" name="logo" id="logo">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div>
+                                            <label for="description" class="form-label">Description</label>
+                                            <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description" >
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -86,6 +92,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Logo</th>
+                                    <th scope="col">Description</th>
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
@@ -97,7 +104,8 @@
                                     <td>{{$insuranceProvider->name}}</td>
                                     <td>{{$insuranceProvider->email}}</td>
                                     <td><img src="{{$insuranceProvider->logo}}" class="img img-thumbnail logo-img" style="max-height: 50px;"> </td>
-                                  <td>
+                                    <td>{{$insuranceProvider->description}}</td>
+                                    <td>
                                       <div class="d-flex gap-2 justify-content-end">
                                           <div class="edit">
                                               <a href="{{route('insuranceProvider.edit', $insuranceProvider->id)}}"

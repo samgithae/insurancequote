@@ -35,20 +35,20 @@
                             <form  method="POST" action="{{ route('insuranceCoverRate.store') }}" class="form-steps" enctype="multipart/form-data" autocomplete="off">
                                 @csrf
                                 <div class="row">
-                                   
+
 
                                 <div class="col-lg-3">
-                                    <label class="form-label" for="insurance_cover">Insurance Cover</label>
+                                    <label class="form-label" for="insurance_cover">Insurance Cover Name</label>
                                     <select class="form-select" type="text" id="insuranceCover" name="insurance_cover_id" required>
                                         <option value="" selected disabled>Select Insurance Cover</option>
                                         @foreach($insuranceCovers as $id => $insuranceCover)
                                             <option value="{{ $id  }}">{{ $insuranceCover }}</option>
                                         @endforeach
                                     </select>
-                                    <input type="hidden" name="insurance_cover" id="insurance_cover" required>
-                                </div>     
-                                
-                                    
+                                    <input type="hidden" name="insurance_cover_name" id="insurance_cover_name" required>
+                                </div>
+
+
                                     <div class="col-lg-3">
                                         <div>
                                             <label for="minimum_value" class="form-label">Minimum Value</label>
@@ -83,7 +83,7 @@
                                             <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-lg-3">
                                         <button type="submit" class="btn btn-success btn-label right ms-auto m-4" data-nexttab="pills-experience-tab"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Add</button>
 
@@ -114,7 +114,7 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">Insurance Cover</th>
+                                    <th scope="col">Insurance Cover Name</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Basic Rate (%)</th>
                                     <th scope="col">Minimum Premium </th>
@@ -126,7 +126,7 @@
                                 @foreach($insuranceCoverRates as $insuranceCoverRate)
                                 <tr>
                                     <th scope="row">{{$counter++}} </th>
-                                    <td>{{$insuranceCoverRate->insurance_cover}}</td>
+                                    <td>{{$insuranceCoverRate->insurance_cover_name}}</td>
                                     <td>{{$insuranceCoverRate->description}}</td>
                                     <td> {{$insuranceCoverRate->basic_rate}}</td>
                                     <td> {{$insuranceCoverRate->minimum_premium}}</td>
@@ -200,10 +200,10 @@
                 });
 
 
-                
+
                 document.getElementById('insuranceCover').addEventListener('change', function() {
                     var selectedOption = this.options[this.selectedIndex];
-                    document.getElementById('insurance_cover').value = selectedOption.text;
+                    document.getElementById('insurance_cover_name').value = selectedOption.text;
                 });
 
             </script>
