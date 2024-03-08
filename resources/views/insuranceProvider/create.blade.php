@@ -56,7 +56,8 @@
                                     <div class="col-lg-8">
                                         <div>
                                             <label for="description" class="form-label">Description</label>
-                                            <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description" >
+{{--                                            <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description" >--}}
+                                            <textarea id="description" name="description" class="form-control" rows="3"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -92,7 +93,6 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Logo</th>
-                                    <th scope="col">Description</th>
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
@@ -104,7 +104,6 @@
                                     <td>{{$insuranceProvider->name}}</td>
                                     <td>{{$insuranceProvider->email}}</td>
                                     <td><img src="{{$insuranceProvider->logo}}" class="img img-thumbnail logo-img" style="max-height: 50px;"> </td>
-                                    <td>{{$insuranceProvider->description}}</td>
                                     <td>
                                       <div class="d-flex gap-2 justify-content-end">
                                           <div class="edit">

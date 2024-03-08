@@ -38,9 +38,9 @@ class BenefitController extends Controller
         $benefit = $request->validate([
             'insurance_cover' => 'required',
             'name' => 'required',
-            'value' => 'required|integer',
+            'value' => 'required',
             'status' => 'required',
-            'cost' => 'nullable|integer',
+            'cost' => 'nullable',
             'insurance_cover_id'=>'required'
         ]);
         $benefit = Benefit::create($request->all());

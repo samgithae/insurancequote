@@ -53,7 +53,7 @@
                                         <label class="form-label" for="lead">Lead</label>
 
                                         <select class="form-select" type="text" id="lead" name="lead_id" required>
-                                            <!-- <option value="" selected disabled >Select Insurance Cover</option> -->
+
 
                                             @foreach($leads as $id => $lead )
                                                 <option value="{{ $id }}"  {{ $lead == $order->lead_id ? 'selected' : '' }} >{{ $lead }}</option>
@@ -114,8 +114,6 @@
                 <!--end col-->
             </div>
             <!--end row-->
-
-
 
 
         </div> <!-- container-fluid -->

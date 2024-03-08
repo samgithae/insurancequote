@@ -59,7 +59,7 @@
                                     <div class="col-lg-4">
                                         <div>
                                             <label for="value" class="form-label">Value</label>
-                                            <input type="number" class="form-control" id="value" name="value" placeholder="Enter Value" required>
+                                            <input type="text" class="form-control" id="value" name="value" placeholder="Enter Value" required>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                     <div class="col-lg-4">
                                         <div>
                                             <label for="cost" class="form-label">Cost</label>
-                                            <input type="number" class="form-control" id="cost" name="cost" placeholder="Enter Cost" >
+                                            <input type="text" class="form-control" id="cost" name="cost" placeholder="Enter Cost" >
                                         </div>
                                     </div>
 

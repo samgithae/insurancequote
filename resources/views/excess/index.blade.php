@@ -51,27 +51,7 @@
                                     <td>{{$excess->insurance_cover_name}}</td>
                                     <td>{{$excess->name}}</td>
                                     <td>{{$excess->amount}}</td>
-                                    <!-- <td>
-                                      <div class="d-flex gap-2 justify-content-end">
-                                          <div class="edit">
-                                              <a href="{{route('excess.edit', $excess->id)}}"
-                                                 class="btn btn-sm btn-success edit-item-btn">Edit</a>
-                                          </div>
-                                          <div class="remove">
-                                              <form class="needs-validation" novalidate
-                                                    action="{{route('excess.destroy',$excess)}}"
-                                                    method="post">
 
-                                                  @csrf
-                                                  @method('delete')
-                                                  <a href=""
-                                                     class="dltBtn btn btn-sm btn-danger remove-item-btn"
-                                                     data-bs-toggle="modal">Delete </a>
-
-                                              </form>
-                                          </div>
-                                      </div>
-                                    </td> -->
                                 </tr>
                                 @endforeach
                                 </tbody>

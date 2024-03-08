@@ -460,9 +460,10 @@
                                                                     @endforeach
 
                                                                 </ul>
+
                                                                 <div class="mt-3 pt-2">
-                                                                    <a href="javascript:void(0);"
-                                                                       class="btn btn-info w-100">Add Benefits</a>
+                                                                    <a href="{{route('leads.edit',['lead'=>$lead->id])}}"
+                                                                       class="btn btn-info w-100">View Benefits</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -472,46 +473,6 @@
 
 
                                                 </div>
-
-{{--                                                <table class="table table-striped-columns">--}}
-{{--                                                    <tr class="table-light ">--}}
-{{--                                                        <th class="col-lg-3 align-middle m-3 ms-2"></th>--}}
-{{--                                                        <th>Benefits</th>--}}
-{{--                                                        <th>Price</th>--}}
-{{--                                                    </tr>--}}
-{{--                                                    <tr class=" ">--}}
-{{--                                                        <td rowspan="4">    <!--class="table-light"-->--}}
-{{--                                                            <img--}}
-{{--                                                                src="{{ $insuranceCoverRate->insuranceCover->insuranceProvider->logo }}"--}}
-{{--                                                                width="150px" height="150px"--}}
-{{--                                                                class="img img-thumbnail  mt-5 " alt="Provider Logo">--}}
-{{--                                                        </td>--}}
-{{--                                                        <td>--}}
-{{--                                                            --}}{{--                                                    {{dd($insuranceCoverRate->insuranceCover)}}--}}
-{{--                                                            @foreach($insuranceCoverRate->insuranceCover->benefits as $benefit)--}}
-{{--                                                                <table class="table table-striped-columns">--}}
-{{--                                                                    <tr>--}}
-{{--                                                                        <td class="h6">{{$benefit->benefit}}</td>--}}
-{{--                                                                        <td>{{$benefit->value}}</td>--}}
-{{--                                                                    </tr>--}}
-
-{{--                                                                </table>--}}
-{{--                                                            @endforeach--}}
-{{--                                                        </td>--}}
-{{--                                                        <td rowspan="4">--}}
-
-{{--                                                            <button class="btn btn-success right  mt-5"--}}
-{{--                                                                    id="priceBtn">{{$cover_prices[$insuranceCoverRate->id]}}</button>--}}
-{{--                                                            <button class="btn btn-success btn-label right ms-auto mt-5"--}}
-{{--                                                                    id="addBenefitsBtn"><i--}}
-{{--                                                                    class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Add--}}
-{{--                                                                Benefits--}}
-{{--                                                            </button>--}}
-{{--                                                        </td>--}}
-
-
-{{--                                                    </tr>--}}
-{{--                                                </table>--}}
 
 
 

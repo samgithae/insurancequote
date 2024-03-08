@@ -93,6 +93,7 @@ class LeadController extends Controller
             $cover_prices[$cover->id] = $actualPremium;
         }
 
+
         return view('leads.edit', compact('lead','insuranceCoverRates', 'cover_prices'));
     }
 
