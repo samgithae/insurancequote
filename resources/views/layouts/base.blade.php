@@ -5,7 +5,6 @@
 
 
     @include('layouts.partials.head')
-    @yield('custom_css')
 </head>
 
 <body>
