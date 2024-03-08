@@ -77,7 +77,7 @@
                                                 <div>
                                                     <label for="value" class="form-label"> Value
                                                     </label>
-                                                    <input type="number" value="{{$benefit->value}}"  name="value" class="form-control" id="value"
+                                                    <input type="text" value="{{$benefit->value}}"  name="value" class="form-control" id="value"
                                                            placeholder="Enter value">
                                                 </div>
                                             </div>
@@ -98,7 +98,7 @@
                                                 <div>
                                                     <label for="cost" class="form-label"> Cost
                                                     </label>
-                                                    <input type="number" value="{{$benefit->cost}}"  name="cost" class="form-control" id="cost"
+                                                    <input type="text" value="{{$benefit->cost}}"  name="cost" class="form-control" id="cost"
                                                            placeholder="Enter Cost">
                                                 </div>
                                             </div>

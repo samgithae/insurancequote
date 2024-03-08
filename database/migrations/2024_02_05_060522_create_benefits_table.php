@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string("insurance_cover");
             $table->string("name");
-            $table->integer("value");
+            $table->string("value");
             $table->string("status");
-            $table->integer("cost")->nullable();
+            $table->string("cost")->nullable();
 
             $table->timestamps();
         });

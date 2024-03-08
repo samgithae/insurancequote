@@ -59,7 +59,7 @@
                                     <div class="col-lg-4">
                                         <div>
                                             <label for="amount" class="form-label">Amount</label>
-                                            <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter Amount" >
+                                            <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter Amount" >
                                         </div>
                                     </div>
                                 </div>

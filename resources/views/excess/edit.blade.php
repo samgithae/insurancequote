@@ -52,17 +52,16 @@
 
 
                                             <div class="col-lg-4">
-                                        <label class="form-label" for="insurance_cover">Insurance Cover Name</label>
+                                                <label class="form-label" for="insurance_cover">Insurance Cover Name</label>
 
-                                        <select class="form-select" type="text" id="insuranceCover" name="insurance_cover_id" required>
-                                            <!-- <option value="" selected disabled >Select Insurance Cover</option> -->
+                                                <select class="form-select" type="text" id="insuranceCover" name="insurance_cover_id" required>
 
-                                            @foreach($insuranceCovers as $id => $insuranceCover )
-                                                <option value="{{ $id }}"  {{ $insuranceCover == $excess->insurance_cover ? 'selected' : '' }} >{{ $insuranceCover }}</option>
-                                            @endforeach
-                                        </select>
-                                        <input type="hidden" name="insurance_cover_name" id="insurance_cover_name" value="{{ $excess->insurance_cover_name }}" required>
-                                    </div>
+                                                    @foreach($insuranceCovers as $id => $insuranceCover )
+                                                        <option value="{{ $id }}"  {{ $insuranceCover == $excess->insurance_cover ? 'selected' : '' }} >{{ $insuranceCover }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <input type="hidden" name="insurance_cover_name" id="insurance_cover_name" value="{{ $excess->insurance_cover_name }}" required>
+                                            </div>
 
                                             <!--end col-->
                                             <div class=" col-lg-4">
@@ -77,7 +76,7 @@
                                                 <div>
                                                     <label for="amount" class="form-label"> Amount
                                                     </label>
-                                                    <input type="number" value="{{$excess->amount}}"  name="amount" class="form-control" id="amount"
+                                                    <input type="text" value="{{$excess->amount}}"  name="amount" class="form-control" id="amount"
                                                            placeholder="Enter value">
                                                 </div>
                                             </div>
