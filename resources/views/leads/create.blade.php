@@ -438,14 +438,30 @@
             document.getElementById("personalFields").classList.remove("hidden");
             document.getElementById("personalImg").style.border = "2px solid #C01E2E";
             document.getElementById("personalImg").style.background = "#F8F092";
+
+              // Remove background image from other options
+              document.getElementById("commercialImg").style.background = "none";
+              document.getElementById("psvImg").style.background = "none";
+
+
           } else if (vehicleType === 'commercial') {
             document.getElementById("commercialFields").classList.remove("hidden");
             document.getElementById("commercialImg").style.border = "2px solid #C01E2E";
               document.getElementById("commercialImg").style.background = "#F8F092";
+
+              // Remove background image from other options
+              document.getElementById("personalImg").style.background = "none";
+              document.getElementById("psvImg").style.background = "none";
+
+
           } else if (vehicleType === 'psv') {
             document.getElementById("psvFields").classList.remove("hidden");
             document.getElementById("psvImg").style.border = "2px solid #C01E2E";
               document.getElementById("psvImg").style.background = "#F8F092";
+
+              // Remove background image from other options
+              document.getElementById("personalImg").style.background = "none";
+              document.getElementById("commercialImg").style.background = "none";
           }
         }
 
