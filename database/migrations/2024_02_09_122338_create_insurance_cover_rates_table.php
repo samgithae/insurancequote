@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("insurance_cover_name");
             $table->integer("minimum_value")->nullable();
             $table->integer("maximum_value")->nullable();
-            $table->integer("basic_rate")->nullable();
+            $table->float("basic_rate")->nullable();
             $table->integer("minimum_premium")->nullable();
             $table->string("description")->nullable();
             $table->timestamps();

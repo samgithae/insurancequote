@@ -66,7 +66,7 @@
                                     <div class="col-lg-3">
                                         <div>
                                             <label for="basic_rate" class="form-label">Basic Rate (%)</label>
-                                            <input type="number" class="form-control" id="basic_rate" name="basic_rate" placeholder="Enter Basic Rate" >
+                                            <input type="number" class="form-control" id="basic_rate" name="basic_rate" placeholder="Enter Basic Rate" step="0.01" >
                                         </div>
                                     </div>
 

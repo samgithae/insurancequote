@@ -99,7 +99,7 @@
                                                                 </div>
                                                             </li>
                                                             </td>
-                                                            <td> Ksh. {{$benefit->value}}</td>
+                                                            <td>  {{$benefit->value}}</td>
                                                             </li>
                                                         </tr>
                                                     @endforeach
@@ -161,13 +161,13 @@
                                                                         class="flex-shrink-0 text-success me-1">
                                                                         <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                                     </div>
-                                                                    <div class="flex-grow-1">
+                                                                    <div class="flex-grow-1 ">
                                                                         <b>{{$excess->name}}</b>
                                                                     </div>
                                                                 </div>
                                                             </li>
                                                         </td>
-                                                        <td> Ksh. {{$excess->amount}} </td>
+                                                        <td> {{$excess->amount}} </td>
                                                         </li>
                                                     </tr>
                                                 @endforeach
