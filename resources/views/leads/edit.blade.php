@@ -32,178 +32,90 @@
                         <div class="card-body">
                             <!-- Hoverable Rows -->
 
-
-
-
                             @foreach($insuranceCoverRates as $insuranceCoverRate)
-
-                                <div class="container mt-4" style="margin-left: 100px";>
+                                <div class="container mt-4">
                                     <div class="row">
-                                        <div class="col">
-                                            <img src="{{$insuranceCoverRate->insuranceCover->insuranceProvider->logo}}" alt="Provider Logo" height="50px" >
+                                        <div class="col-md-3">
+                                            <img src="{{$insuranceCoverRate->insuranceCover->insuranceProvider->logo}}" alt="Provider Logo" height="50px">
                                         </div>
-                                        <div class="col">
+                                        <div class="col-md-6">
                                             <h3>{{$insuranceCoverRate->insuranceCover->insuranceProvider->name}}</h3>
+                                            <p>{{$insuranceCoverRate->insuranceCover->insuranceProvider->description}}</p>
                                         </div>
-                                        <div class="col">
-                                            <button  class="btn btn-success" ><p>Ksh.  {{$cover_prices[$insuranceCoverRate->id]}}</p></button>
+                                        <div class="col-md-3">
+                                            <button class="btn btn-success">Ksh. {{$cover_prices[$insuranceCoverRate->id]}}</button>
                                         </div>
                                     </div>
                                 </div>
 
-                            <div class=" mt-5">
-                                <p>{{$insuranceCoverRate->insuranceCover->insuranceProvider->description}}</p>
-                            </div>
-
-
-                            <div class="row">
-
-                            <div class=" col-xxl-6 col-lg-6 ">
-                                <div class="card pricing-box">
-                                    <div class="card-body bg-light m-2 p-4">
-                                        <div class=" align-items-center mb-3">
-                                            <div class="ms-auto">
-                                                <h2 class="month mb-0"> Benefits
-                                                </h2>
-
+                                <div class="row mt-5">
+                                    <div class="col-md-6">
+                                        <div class="card pricing-box">
+                                            <div class="card-body bg-light m-2 p-4">
+                                                <h2 class="month mb-4">Benefits</h2>
+                                                <ul class="list-unstyled">
+                                                    <table class="table table-hover table-striped align-middle table-nowrap mb-0">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">Benefit</th>
+                                                            <th scope="col">Limit</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        @foreach($insuranceCoverRate->insuranceCover->benefits as $benefit)
+                                                            <tr>
+                                                                <td>{{$benefit->name}}</td>
+                                                                <td>{{$benefit->value}}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </ul>
+                                                <div class="mt-3 pt-2">
+                                                    <a href="javascript:void(0);" class="btn btn-info w-100">Add Benefits</a>
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <ul class="list-unstyled vstack gap-3">
-
-
-
-                                            <table class="table table-hover table-striped align-middle table-nowrap mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col"> Benefit</th>
-                                                        <th scope="col"> Limit </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-
-
-                                                    @foreach($insuranceCoverRate->insuranceCover->benefits as $benefit)
-                                                        <tr>
-                                                            <td>
-                                                            <li>
-                                                                <div class="d-flex">
-                                                                    <div
-                                                                        class="flex-shrink-0 text-success me-1">
-                                                                        <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1">
-                                                                        <b>{{$benefit->name}}</b>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            </td>
-                                                            <td>  {{$benefit->value}}</td>
-                                                            </li>
-                                                        </tr>
-                                                    @endforeach
-                                                @endforeach
-
-
-                                                </tbody>
-                                            </table>
-
-
-
-
-
-                                        </ul>
-                                        <div class="mt-3 pt-2">
-                                            <a href="javascript:void(0);"
-                                               class="btn btn-info w-100">Add Benefits</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card pricing-box">
+                                            <div class="card-body bg-light m-2 p-4">
+                                                <h2 class="month mb-4">Excess</h2>
+                                                <ul class="list-unstyled">
+                                                    <div style="overflow-x: auto;">
+                                                        <table class="table table-hover table-striped align-middle table-nowrap mb-0">
+                                                            <thead>
+                                                            <tr>
+                                                                <th scope="col">Excess</th>
+                                                                <th scope="col">Amount</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            @foreach($insuranceCoverRate->insuranceCover->excesses as $excess)
+                                                                <tr>
+                                                                    <td>{{$excess->name}}</td>
+                                                                    <td>{{$excess->amount}}</td>
+                                                                </tr>
+                                                            @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </ul>
+                                                <div class="mt-3 pt-2">
+                                                    <a href="javascript:void(0);" class="btn btn-info w-100">Add Benefits</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
+                            @endforeach
 
-
-                                <!--Benefit sections ends-->
-
-
-                                <!--excess section-->
-
-                        <div class=" col-xxl-4 col-lg-6 ">
-                            <div class="card pricing-box">
-                                <div class="card-body bg-light m-2 p-4">
-                                    <div class=" align-items-center mb-3">
-
-                                        <div class="ms-auto">
-                                            <h2 class="month mb-0"> Excess
-                                            </h2>
-
-                                        </div>
-                                    </div>
-
-                                    <ul class="list-unstyled vstack gap-3">
-                                        <table class="table table-hover table-striped align-middle table-nowrap mb-0 col-lg-6">
-                                            <thead>
-                                            <tr>
-                                                <th scope="col"> Excess</th>
-                                                <th scope="col"> Amount </th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            @foreach($insuranceCoverRates as $insuranceCoverRate)
-                                                @foreach($insuranceCoverRate->insuranceCover->excesses as $excess)
-                                                    <tr>
-                                                        <td>
-                                                            <li>
-                                                                <div class="d-flex">
-                                                                    <div
-                                                                        class="flex-shrink-0 text-success me-1">
-                                                                        <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 ">
-                                                                        <b>{{$excess->name}}</b>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </td>
-                                                        <td> {{$excess->amount}} </td>
-                                                        </li>
-                                                    </tr>
-                                                @endforeach
-                                            @endforeach
-
-
-                                            </tbody>
-                                        </table>
-                                    </ul>
-                                    <div class="mt-3 pt-2">
-                                        <a href="javascript:void(0);"
-                                           class="btn btn-info w-100">Add Benefits</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-
                     </div>
                 </div>
-
-                    <!--card section ends-->
-
-                        <!-- button section -->
-                        <div class="row">
-                            <div class="col-12">
-
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- end row -->
             </div>
+        </div>
+    </div>
 
 @endsection
