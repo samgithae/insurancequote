@@ -2,6 +2,43 @@
 
 @extends('layouts.base')
 @section('body')
+<style>
+        .loading-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        .loading-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+
+
+
+
+
     <div class="page-content">
         <div class="container-fluid">
 
@@ -256,16 +293,15 @@
                                                 </div>
                                             </div>
 
-                                                <!-- here  -->
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="steparrow-gen-info-vehicle_use">Vehicle Use</label>
-                                                        <select class="form-select" type="text" id="vehicle_use" name="vehicle_use" required>
-                                                                                            <option value="" selected disabled>Choose vehicle use</option>
-                                                                                            <option value="personal" >Personal</option>
+                                                        <select class="form-select" id="vehicle_use_select" name="vehicle_use" disabled >
+                                                                                            <option value="personal" selected >Personal</option>
                                                                                             <option value="commercial" >Commercial</option>
                                                                                             <option value="psv" >psv</option>
                                                                                         </select>
+                                                        <input type="hidden" id="vehicle_use" name="vehicle_use" >
                                                         <div class="invalid-feedback">Please enter a valid Vehicle Use</div>
                                                     </div>
                                                 </div>
@@ -288,18 +324,18 @@
 
 
 
-                                                <div id="commercialFields" class="hidden">
-                                                <div>
-                                                    <label class="form-label" for="steparrow-gen-info-vehicle_type">Vehicle Type</label>
-                                                    <select class="form-select" type="text" id="vehicle_type" name="vehicle_type" >
-                                                                                            <option value="" selected >Select type</option>
-                                                                                            <option value="pickup">pickup</option>
-                                                                                            <option value="canter">canter</option>
-                                                                                            <option value="lorry">lorry</option>
-                                                                                        </select>
-                                                    <div class="invalid-feedback">Please enter Vehicle Type</div>
-                                                </div>
-                                                </div>
+                                            <div id="commercialFields" class="hidden">
+                                            <div>
+                                                <label class="form-label" for="steparrow-gen-info-vehicle_type">Vehicle Type</label>
+                                                <select class="form-select" type="text" id="vehicle_type" name="vehicle_type" >
+                                                                                        <option value="" selected >Select type</option>
+                                                                                        <option value="pickup">pickup</option>
+                                                                                        <option value="canter">canter</option>
+                                                                                        <option value="lorry">lorry</option>
+                                                                                    </select>
+                                                <div class="invalid-feedback">Please enter Vehicle Type</div>
+                                            </div>
+                                            </div>
 
 
                                             <div class="row">
@@ -344,7 +380,7 @@
                                                 <div class="col-lg-6">
                                             <div>
                                                 <label class="form-label" for="steparrow-gen-info-cover_start_date">Cover Start Date</label>
-                                                <input type="date" class="form-control" id="steparrow-gen-info-cover_start_date" name="cover_start_date" placeholder="Enter Year of Cover Start Date" required >
+                                                <input type="date" class="form-control" id="steparrow-gen-info-cover_start_date" name="cover_start_date" placeholder="Enter Year of Cover Start Date" min="<?php echo date('Y-m-d'); ?>" required >
                                                 <div class="invalid-feedback">Please enter Cover Start Date</div>
                                             </div>
                                                 </div>
@@ -398,6 +434,63 @@
                                             <h5>Well Done !</h5>
                                             <p class="text-muted">You have Successfully Signed Up</p>
                                         </div>
+
+                                        <!-- Loading Popup -->
+
+                                        <div id="loadingPopup" class="loading-popup" >
+                                            <div class="loading-content" style="width:340px; align-content: center ">
+                                                <button id="closePopupBtn" class="btn-close swal2-close"  aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+
+                                                <p>Loading...</p>
+
+                                                <!--  loading icon animation -->
+
+                                                <div aria-labelledby="swal2-title" aria-describedby="swal2-html-container" class="swal2-popup swal2-modal swal2-show" tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" ">
+
+                                                    <div class="swal2-html-container" id="swal2-html-container" >
+                                                        <div class="mt-3">
+
+                                                            <div >
+                                                            <iframe src="https://lottie.host/embed/5acdb1b5-ef43-41dd-9b65-4fa82dacc37a/iW50ss2iHi.json"></iframe>
+                                                            </div>
+
+
+                                                                <!-- Searching Button -->
+                                                                <div class="hstack flex-wrap gap-2 mb-3 mb-lg-0" style="margin-top: 50px;  justify-content: center; align-items: center">
+
+                                                                    <button type="button" class="btn btn-outline-secondary btn-load">
+                                                                        <span class="d-flex align-items-center">
+                                                                            <span class="spinner-grow flex-shrink-0" role="status">
+                                                                                <span class="visually-hidden">Loading...</span>
+                                                                            </span>
+                                                                            <span class="flex-grow-1 ms-2">
+                                                                                Searching...
+                                                                            </span>
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                            </div>
+
+
+
+
+                                                    </div>
+                                            <div class="swal2-footer" style="display: none;"></div>
+                                                    <div class="swal2-timer-progress-bar-container">
+                                                        <div class="swal2-timer-progress-bar" style="display: none;">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
                                     </div>
                                     <!-- end tab pane -->
                                 </div>
@@ -443,6 +536,8 @@
               document.getElementById("commercialImg").style.background = "none";
               document.getElementById("psvImg").style.background = "none";
 
+              // //fill the second "vehicle use" option
+
 
           } else if (vehicleType === 'commercial') {
             document.getElementById("commercialFields").classList.remove("hidden");
@@ -453,6 +548,9 @@
               document.getElementById("personalImg").style.background = "none";
               document.getElementById("psvImg").style.background = "none";
 
+              // //fill the second "vehicle use" option
+              // document.getElementById("vehicle_use").value="commercial";
+
 
           } else if (vehicleType === 'psv') {
             document.getElementById("psvFields").classList.remove("hidden");
@@ -462,14 +560,30 @@
               // Remove background image from other options
               document.getElementById("personalImg").style.background = "none";
               document.getElementById("commercialImg").style.background = "none";
+
+              // //fill the second "vehicle use" option
+              // document.getElementById("vehicle_use").value="psv";
           }
+
+            // Update the value of the vehicle_use dropdown
+            document.getElementById("vehicle_use").value = vehicleType;
+            document.getElementById("vehicle_use_select").value = vehicleType;
         }
 
-        // function submitForm() {
+        // popup
 
-        //     showFields(document.getElementById("vehicle_use").value);
-        //      document.getElementById('myForm').submit();
-        //      }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(showLoadingPopup, 1000); // Show popup after 1 second
+            document.getElementById('closePopupBtn').addEventListener('click', function () {
+                document.getElementById('loadingPopup').style.display = 'none';
+            });
+        });
+
+        function showLoadingPopup() {
+            document.getElementById('loadingPopup').style.display = 'block';
+        }
+
       </script>
 
 

@@ -1,6 +1,31 @@
 @extends('layouts.base')
 @section('body')
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+
+
+        .benefits-container {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .benefit {
+            width: calc(33.33% - 10px); /*  each benefit takes one third of the container's width with some spacing */
+            margin: 5px;
+            background-color: #fffff0f0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .freeBenefits{
+            margin-right: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+    </style>
     <div class="page-content">
         <div class="container-fluid">
 
@@ -444,27 +469,43 @@
                                                                 </div>
                                                                 <b>{{ $insuranceCoverRate->insuranceCover->insuranceProvider->name }}</b>
                                                                 <p class="text-muted">{{ $insuranceCoverRate->insuranceCover->name }}</p>
-                                                                <ul class="list-unstyled vstack gap-3">
-                                                                    @foreach($insuranceCoverRate->insuranceCover->benefits as $benefit)
-                                                                    <li>
-                                                                        <div class="d-flex">
-                                                                            <div
-                                                                                class="flex-shrink-0 text-success me-1">
-                                                                                <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
-                                                                            </div>
-                                                                            <div class="flex-grow-1">
-                                                                                <b>{{$benefit->name}}</b> {{$benefit->value}}
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    @endforeach
 
-                                                                </ul>
+
+                                                                <!-- new benefits layout -->
+
+
+                                                                <div class="benefits-container">
+                                                                    @foreach($insuranceCoverRate->insuranceCover->benefits as $benefit)
+
+                                                                            <div class="benefit">{{ $benefit->name }} : <br> <strong> {{$benefit->value}} </strong> </div>
+
+                                                                    @endforeach
+                                                                </div>
+
 
                                                                 <div class="mt-3 pt-2">
                                                                     <a href="{{route('leads.edit',['lead'=>$lead->id])}}"
                                                                        class="btn btn-info w-100">View Benefits</a>
                                                                 </div>
+
+
+                                                                <hr>
+                                                                @if($insuranceCoverRate->insuranceCover->benefits->contains('status', 'free'))
+                                                                    <h4 class="mb-3">FREE BENEFITS</h4>
+                                                                    <div class="benefits-container">
+                                                                        @foreach($insuranceCoverRate->insuranceCover->benefits as $benefit)
+                                                                            @if($benefit->status === 'free')
+                                                                                <div class="freeBenefits">
+                                                                                    <i class="bi bi-check2-square" style="font-size: medium; margin-right: 5px;"></i>
+                                                                                    {{$benefit->name}}
+                                                                                </div>
+                                                                            @endif
+                                                                        @endforeach
+                                                                    </div>
+                                                                @else
+                                                                    NO FREE BENEFITS
+                                                                @endif
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -473,8 +514,6 @@
 
 
                                                 </div>
-
-
 
                                         </div>
                                     </div>

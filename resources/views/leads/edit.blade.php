@@ -74,6 +74,22 @@
                                                 <div class="mt-3 pt-2">
                                                     <a href="javascript:void(0);" class="btn btn-info w-100">Add Benefits</a>
                                                 </div>
+
+                                                <hr class="mt-5">
+                                                <p class="mt-2">
+                                                    <strong> Please take a moment to review the important information below:</strong>
+                                                    <br>
+
+                                                    <ol>
+                                                    <li>Vehicle must be declared for private and business use only</li>
+                                                    <li>Consequential loss not covered</li>
+                                                    <li>Depreciation, wear and tear, mechanical, electrical or electronic breakdown, failures or breakages.</li>
+                                                    <li>Damage to tyres unless damage is caused to other parts of the vehicle at the same time not covered</li>
+                                                    <li>Damage caused by overloading or strain not covered</li>
+                                                    <li>The excess stated in the Excess schedule</li>
+                                                </ol>
+                                                </p>
+
                                             </div>
                                         </div>
                                     </div>
@@ -81,6 +97,9 @@
                                         <div class="card pricing-box">
                                             <div class="card-body bg-light m-2 p-4">
                                                 <h2 class="month mb-4">Excess</h2>
+                                                <p> The following excess amounts are applicable in case you make a claim on your car insurance policy.
+                                                    We recommend you add an Excess Protector option to this policy to reduce any excesses you are liable for in case of a claim.
+                                                    Check Benefits section to find out if this policy already includes an Excess Protector.</p>
                                                 <ul class="list-unstyled">
                                                     <div style="overflow-x: auto;">
                                                         <table class="table table-hover table-striped align-middle table-nowrap mb-0">
