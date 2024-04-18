@@ -36,5 +36,7 @@ Route::resource('benefit', \App\Http\Controllers\BenefitController::class);
 Route::resource('excess', \App\Http\Controllers\ExcessController::class);
 Route::resource('order', \App\Http\Controllers\OrderController::class);
 Route::resource('insuranceCoverRate', \App\Http\Controllers\InsuranceCoverRateController::class);
+Route::resource('getQuote', \App\Http\Controllers\GetQuoteController::class);
+
 
 require __DIR__.'/auth.php';
