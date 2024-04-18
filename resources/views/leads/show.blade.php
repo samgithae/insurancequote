@@ -26,7 +26,7 @@
         }
         .vertical-line {
             border-left: 1px solid #ccc;
-            height: 100%;
+            height: 150%;
             position: absolute;
             top: 0;
             bottom: 0;
@@ -508,7 +508,7 @@
                                                                             @if($benefit->status === 'free')
                                                                                 <div class="col-md-6" style="position: relative;">
                                                                                     <div class="freeBenefits">
-                                                                                        <span style="display: inline-flex; align-items: baseline;">
+                                                                                        <span style="display: inline-flex; align-items: baseline; margin-bottom: 3px;">
                                                                                             <i class="bi bi-check2-square" style="font-size: medium; margin-right: 5px; vertical-align: initial;"></i>
                                                                                             {{$benefit->name}}
                                                                                         </span>
