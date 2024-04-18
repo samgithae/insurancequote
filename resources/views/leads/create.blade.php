@@ -453,7 +453,8 @@
                                                         <div class="mt-3">
 
                                                             <div >
-                                                            <iframe src="https://lottie.host/embed/5acdb1b5-ef43-41dd-9b65-4fa82dacc37a/iW50ss2iHi.json"></iframe>
+{{--                                                            <iframe src="https://lottie.host/embed/5acdb1b5-ef43-41dd-9b65-4fa82dacc37a/iW50ss2iHi.json"></iframe>--}}
+                                                                <iframe src="https://lottie.host/embed/6677376f-e4a2-4797-93d7-5214b0304536/NTVW8SIO1u.json"></iframe>
                                                             </div>
 
 

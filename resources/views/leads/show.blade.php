@@ -24,6 +24,17 @@
             display: flex;
             align-items: center;
         }
+        .vertical-line {
+            border-left: 1px solid #ccc;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+
 
     </style>
     <div class="page-content">
@@ -477,7 +488,7 @@
                                                                 <div class="benefits-container">
                                                                     @foreach($insuranceCoverRate->insuranceCover->benefits as $benefit)
 
-                                                                            <div class="benefit">{{ $benefit->name }} : <br> <strong> {{$benefit->value}} </strong> </div>
+                                                                            <div class="benefit">{{ $benefit->name }}: <br> <strong> {{$benefit->value}} </strong> </div>
 
                                                                     @endforeach
                                                                 </div>
@@ -492,12 +503,19 @@
                                                                 <hr>
                                                                 @if($insuranceCoverRate->insuranceCover->benefits->contains('status', 'free'))
                                                                     <h4 class="mb-3">FREE BENEFITS</h4>
-                                                                    <div class="benefits-container">
-                                                                        @foreach($insuranceCoverRate->insuranceCover->benefits as $benefit)
+                                                                    <div class="row benefits-container">
+                                                                        @foreach($insuranceCoverRate->insuranceCover->benefits as $index => $benefit)
                                                                             @if($benefit->status === 'free')
-                                                                                <div class="freeBenefits">
-                                                                                    <i class="bi bi-check2-square" style="font-size: medium; margin-right: 5px;"></i>
-                                                                                    {{$benefit->name}}
+                                                                                <div class="col-md-6" style="position: relative;">
+                                                                                    <div class="freeBenefits">
+                                                                                        <span style="display: inline-flex; align-items: baseline;">
+                                                                                            <i class="bi bi-check2-square" style="font-size: medium; margin-right: 5px; vertical-align: initial;"></i>
+                                                                                            {{$benefit->name}}
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    @if($index % 2 == 0 && $index < count($insuranceCoverRate->insuranceCover->benefits) - 1)
+                                                                                        <div class="vertical-line" style="position: absolute; left: 95%; top: 0; bottom: -10px; width: 1px; background-color: black;"></div>
+                                                                                    @endif
                                                                                 </div>
                                                                             @endif
                                                                         @endforeach
@@ -505,6 +523,7 @@
                                                                 @else
                                                                     NO FREE BENEFITS
                                                                 @endif
+
 
                                                             </div>
                                                         </div>
